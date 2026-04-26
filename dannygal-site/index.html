@@ -42,6 +42,14 @@
     .btn-cta:hover { background: var(--dark2); }
     @media (max-width: 700px) { nav .nav-link { display: none; } }
 
+    /* ── HAMBURGER + MOBILE NAV ── */
+    .nav-toggle { display: none; background: none; border: none; cursor: pointer; padding: 0.4rem 0.5rem; color: var(--dark); font-size: 1.3rem; line-height: 1; margin-left: 0.25rem; }
+    @media (max-width: 700px) { .nav-toggle { display: flex; align-items: center; } }
+    .mobile-nav { display: none; position: fixed; top: 62px; left: 0; right: 0; z-index: 197; background: rgba(245,243,239,0.98); backdrop-filter: blur(20px); border-bottom: 2px solid var(--border); padding: 0.5rem 1.5rem 1rem; flex-direction: column; box-shadow: 0 8px 24px rgba(18,25,42,0.1); }
+    .mobile-nav.open { display: flex; }
+    .mobile-nav a.nav-link { display: block; padding: 0.85rem 0.25rem; font-size: 0.92rem; color: var(--text); border-bottom: 1px solid var(--border); }
+    .mobile-nav a.btn-cta { margin: 0.75rem 0 0; display: block; text-align: center; font-size: 0.9rem; padding: 0.75rem; }
+
     /* ── RIBBON ── */
     .ribbon {
       position: fixed; top: 62px; left: 0; right: 0; z-index: 199;
@@ -54,6 +62,11 @@
     .ri a { color: #e8c97a; text-decoration: none; border-bottom: 1px solid rgba(232,201,122,0.4); }
     .ri a:hover { border-color: #e8c97a; }
     .rsep { width: 1px; height: 1.1rem; background: rgba(184,135,42,0.4); }
+    @media (max-width: 640px) {
+      .ri { white-space: normal; font-size: 0.7rem; text-align: center; justify-content: center; }
+      .rsep { display: none; }
+      .ribbon { gap: 0.5rem; padding: 0.5rem 1rem; }
+    }
 
     /* ── SPACER ── */
     .spacer { height: 110px; }
@@ -64,7 +77,7 @@
       max-height: 700px; min-height: 580px;
       border-bottom: 1px solid var(--border);
     }
-    @media (max-width: 860px) { .hero { grid-template-columns: 1fr; max-height: none; } }
+    @media (max-width: 860px) { .hero { grid-template-columns: 1fr; max-height: none; min-height: unset; } }
 
     .hero-text {
       display: flex; flex-direction: column; justify-content: center;
@@ -87,8 +100,9 @@
 
     /* Hero photo */
     .hero-photo-col { position: relative; overflow: hidden; }
-    @media (max-width: 860px) { .hero-photo-col { height: 55vw; max-height: 400px; order: 1; } }
-    .hero-photo-col img { width: 100%; height: 100%; object-fit: cover; object-position: top center; display: block; }
+    @media (max-width: 860px) { .hero-photo-col { height: 100vw; max-height: 560px; order: 1; } }
+    @media (max-width: 540px) { .hero-photo-col { height: 115vw; max-height: none; } }
+    .hero-photo-col img { width: 100%; height: 100%; object-fit: cover; object-position: center 20%; display: block; }
     .hero-photo-col::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(245,243,239,0.3) 0%, transparent 40%); }
 
     /* Book badge — clickable */
@@ -102,6 +116,7 @@
     }
     .book-float:hover { box-shadow: 0 12px 40px rgba(18,25,42,0.22); transform: translateY(-2px); }
     .book-float img { width: 42px; border-radius: 0.2rem; }
+    @media (max-width: 400px) { .book-float { padding: 0.6rem 0.8rem; gap: 0.6rem; bottom: 1rem; left: 1rem; } .book-float img { width: 34px; } }
     .bf-text strong { color: var(--dark); display: block; font-size: 0.8rem; margin-bottom: 0.1rem; }
     .bf-text span { color: var(--muted); font-size: 0.7rem; }
     .bf-cta { font-size: 0.68rem; font-weight: 700; color: var(--gold); text-transform: uppercase; letter-spacing: 0.06em; margin-top: 0.2rem; display: block; }
@@ -279,8 +294,19 @@
     <a href="booking.html" class="nav-link">Speaking</a>
     <a href="#articles" class="nav-link">Articles</a>
     <a href="#contact" class="btn-cta">Get in Touch</a>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Open navigation">&#9776;</button>
   </nav>
 </header>
+
+<!-- MOBILE NAV -->
+<div class="mobile-nav" id="mobile-nav">
+  <a href="#about" class="nav-link" onclick="closeMobileNav()">About</a>
+  <a href="services.html" class="nav-link">Services</a>
+  <a href="book-excerpt.html" class="nav-link">Book</a>
+  <a href="booking.html" class="nav-link">Speaking</a>
+  <a href="#articles" class="nav-link" onclick="closeMobileNav()">Articles</a>
+  <a href="#contact" class="btn-cta" onclick="closeMobileNav()">Get in Touch</a>
+</div>
 
 <!-- RIBBON -->
 <div class="ribbon">
@@ -756,5 +782,30 @@
   </div>
 </footer>
 
+<script>
+  // Hamburger menu
+  const navToggle = document.getElementById('nav-toggle');
+  const mobileNav = document.getElementById('mobile-nav');
+  navToggle.addEventListener('click', () => {
+    const open = mobileNav.classList.toggle('open');
+    navToggle.innerHTML = open ? '&#10005;' : '&#9776;';
+  });
+  function closeMobileNav() {
+    mobileNav.classList.remove('open');
+    navToggle.innerHTML = '&#9776;';
+  }
+
+  // Dynamic spacer: match actual header + ribbon height
+  function updateSpacer() {
+    const header = document.querySelector('header');
+    const ribbon = document.querySelector('.ribbon');
+    const spacer = document.querySelector('.spacer');
+    if (spacer && header && ribbon) {
+      spacer.style.height = (header.offsetHeight + ribbon.offsetHeight) + 'px';
+    }
+  }
+  updateSpacer();
+  window.addEventListener('resize', updateSpacer);
+</script>
 </body>
 </html>
