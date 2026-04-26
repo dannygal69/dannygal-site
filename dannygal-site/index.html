@@ -150,10 +150,14 @@
     @media (max-width: 860px) { .book-grid { grid-template-columns: 1fr; gap: 3rem; } }
     .book-img-wrap { display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 1.5rem; }
     .book-img { width: 75%; max-width: 260px; border-radius: 0.5rem; box-shadow: 0 30px 60px rgba(18,25,42,0.2); }
-    .book-badges { display: flex; justify-content: center; align-items: flex-start; gap: 1.75rem; padding-top: 1.25rem; border-top: 1px solid var(--border); width: 100%; }
-    .book-badge-item { display: flex; flex-direction: column; align-items: center; gap: 0.6rem; }
-    .book-badge-item img { height: 90px; width: auto; object-fit: contain; border-radius: 0.3rem; }
-    .book-badge-label { font-size: 0.62rem; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; text-align: center; max-width: 110px; line-height: 1.5; }
+    .book-awards-row { display: flex; width: 100%; padding-top: 1.25rem; border-top: 1px solid var(--border); gap: 0; }
+    .book-award-badge { flex: 1; display: flex; flex-direction: column; align-items: center; text-align: center; padding: 1rem 0.75rem; background: var(--gold-dim); border: 1px solid rgba(184,135,42,0.25); gap: 0.3rem; }
+    .book-award-badge:first-child { border-radius: 0.5rem 0 0 0.5rem; border-right: none; }
+    .book-award-badge:last-child { border-radius: 0 0.5rem 0.5rem 0; }
+    .bab-icon { font-size: 1.1rem; margin-bottom: 0.15rem; }
+    .bab-title { font-family: 'Cormorant Garamond', serif; font-size: 1rem; font-weight: 600; color: var(--gold); line-height: 1.2; }
+    .bab-sub { font-size: 0.65rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text); line-height: 1.4; }
+    .bab-org { font-size: 0.62rem; color: var(--muted); margin-top: 0.1rem; }
     .award-stack { display: flex; flex-direction: column; gap: 0.65rem; margin-bottom: 1.75rem; }
     .award-pill { display: flex; align-items: flex-start; gap: 0.75rem; background: var(--gold-dim); border: 1px solid rgba(184,135,42,0.2); border-radius: 0.45rem; padding: 0.7rem 0.95rem; }
     .ap-icon { font-size: 0.95rem; flex-shrink: 0; margin-top: 0.05rem; }
@@ -382,14 +386,18 @@
     <div class="book-grid">
       <div class="book-img-wrap">
         <img src="3D2_TheBelongingParadox_cropped.png" alt="The Belonging Paradox" class="book-img">
-        <div class="book-badges">
-          <div class="book-badge-item">
-            <img src="award-runner-up-2025.jpeg" alt="Runner-Up Leadership Book of the Year 2025">
-            <span class="book-badge-label">Runner-Up · Leadership Book of the Year 2025</span>
+        <div class="book-awards-row">
+          <div class="book-award-badge">
+            <span class="bab-icon">🏆</span>
+            <span class="bab-title">Runner-Up</span>
+            <span class="bab-sub">Leadership Book of the Year 2025</span>
+            <span class="bab-org">Institute of Leadership</span>
           </div>
-          <div class="book-badge-item">
-            <img src="bba2025.png" alt="Business Book Awards 2025 Finalist" onerror="this.parentElement.style.display='none'">
-            <span class="book-badge-label">Finalist · Business Book Awards 2025</span>
+          <div class="book-award-badge">
+            <span class="bab-icon">⭐</span>
+            <span class="bab-title">Shortlisted</span>
+            <span class="bab-sub">Business Book Awards 2026</span>
+            <span class="bab-org">businessbookawards.co.uk</span>
           </div>
         </div>
       </div>
