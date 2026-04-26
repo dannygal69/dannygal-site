@@ -148,9 +148,10 @@
     .book-bg { background: var(--white); }
     .book-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
     @media (max-width: 860px) { .book-grid { grid-template-columns: 1fr; gap: 3rem; } }
-    .book-img-wrap { display: flex; justify-content: center; align-items: center; gap: 2rem; flex-wrap: wrap; }
-    .book-img { width: 55%; max-width: 230px; border-radius: 0.5rem; box-shadow: 0 30px 60px rgba(18,25,42,0.2); }
-    .bba-badge { width: 120px; }
+    .book-img-wrap { display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 1.5rem; }
+    .book-img { width: 75%; max-width: 260px; border-radius: 0.5rem; box-shadow: 0 30px 60px rgba(18,25,42,0.2); }
+    .book-badges { display: flex; justify-content: center; align-items: center; gap: 1.25rem; flex-wrap: wrap; }
+    .bba-badge { width: 110px; object-fit: contain; }
     .award-stack { display: flex; flex-direction: column; gap: 0.65rem; margin-bottom: 1.75rem; }
     .award-pill { display: flex; align-items: flex-start; gap: 0.75rem; background: var(--gold-dim); border: 1px solid rgba(184,135,42,0.2); border-radius: 0.45rem; padding: 0.7rem 0.95rem; }
     .ap-icon { font-size: 0.95rem; flex-shrink: 0; margin-top: 0.05rem; }
@@ -379,7 +380,10 @@
     <div class="book-grid">
       <div class="book-img-wrap">
         <img src="3D2_TheBelongingParadox_cropped.png" alt="The Belonging Paradox" class="book-img">
-        <img src="bba2025.png" alt="Business Book Awards 2025 Finalist" class="bba-badge" onerror="this.style.display='none'">
+        <div class="book-badges">
+          <img src="award-runner-up-2025.jpeg" alt="Runner-Up Leadership Book of the Year 2025" class="bba-badge">
+          <img src="bba2025.png" alt="Business Book Awards 2025 Finalist" class="bba-badge" onerror="this.style.display='none'">
+        </div>
       </div>
       <div>
         <span class="s-eye">Latest Publication</span>
