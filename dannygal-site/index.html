@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Danny Gal — Organizational Consultant & Executive Coach</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:       #f5f3ef;
+      --bg2:      #edeae4;
+      --bg3:      #e4e0d8;
+      --dark:     #12192a;
+      --dark2:    #1a2438;
+      --border:   rgba(18,25,42,0.1);
+      --gold:     #b8872a;
+      --gold-lt:  #d4a84b;
+      --gold-dim: rgba(184,135,42,0.12);
+      --text:     #2c3548;
+      --muted:    #6b7690;
+      --white:    #ffffff;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Outfit', sans-serif; background: var(--bg); color: var(--text); line-height: 1.65; overflow-x: hidden; }
+
+    /* ── HEADER ── */
+    header {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      height: 62px; display: flex; align-items: center; justify-content: space-between;
+      padding: 0 2.5rem;
+      background: rgba(245,243,239,0.95); backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+    }
+    .logo { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 600; letter-spacing: 0.05em; color: var(--dark); text-decoration: none; }
+    .logo em { font-style: normal; color: var(--gold); }
+    nav { display: flex; align-items: center; gap: 0.25rem; }
+    .nav-link { color: var(--muted); text-decoration: none; font-size: 0.8rem; font-weight: 500; letter-spacing: 0.04em; padding: 0.4rem 0.8rem; border-radius: 0.3rem; transition: color 0.2s; }
+    .nav-link:hover { color: var(--dark); }
+    .btn-cta { margin-left: 0.75rem; background: var(--dark); color: #fff; font-weight: 700; font-size: 0.8rem; letter-spacing: 0.04em; padding: 0.5rem 1.2rem; border-radius: 0.3rem; text-decoration: none; transition: background 0.2s; }
+    .btn-cta:hover { background: var(--dark2); }
+    @media (max-width: 700px) { nav .nav-link { display: none; } }
+
+    /* ── RIBBON ── */
+    .ribbon {
+      position: fixed; top: 62px; left: 0; right: 0; z-index: 199;
+      background: var(--dark);
+      border-bottom: 2px solid var(--gold);
+      padding: 0.65rem 1.5rem;
+      display: flex; align-items: center; justify-content: center; gap: 1.5rem; flex-wrap: wrap;
+    }
+    .ri { display: flex; align-items: center; gap: 0.65rem; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.07em; color: var(--gold-lt); white-space: nowrap; text-transform: uppercase; }
+    .ri a { color: #e8c97a; text-decoration: none; border-bottom: 1px solid rgba(232,201,122,0.4); }
+    .ri a:hover { border-color: #e8c97a; }
+    .rsep { width: 1px; height: 1.1rem; background: rgba(184,135,42,0.4); }
+
+    /* ── SPACER ── */
+    .spacer { height: 110px; }
+
+    /* ── HERO ── */
+    .hero {
+      display: grid; grid-template-columns: 1fr 1fr;
+      max-height: 700px; min-height: 580px;
+      border-bottom: 1px solid var(--border);
+    }
+    @media (max-width: 860px) { .hero { grid-template-columns: 1fr; max-height: none; } }
+
+    .hero-text {
+      display: flex; flex-direction: column; justify-content: center;
+      padding: 4rem 4rem 4rem 3rem; background: var(--white);
+    }
+    @media (max-width: 860px) { .hero-text { padding: 3rem 1.75rem; order: 2; } }
+
+    .gold-bar { width: 2.5rem; height: 2px; background: var(--gold); margin-bottom: 1.5rem; }
+    .eyebrow { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.16em; color: var(--gold); text-transform: uppercase; margin-bottom: 1.1rem; }
+    .hero-h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.6rem, 4.5vw, 4rem); font-weight: 300; line-height: 1.1; color: var(--dark); margin-bottom: 1.5rem; }
+    .hero-h1 em { font-style: italic; color: var(--gold); }
+    .hero-desc { font-size: 0.93rem; color: var(--muted); line-height: 1.82; max-width: 30rem; margin-bottom: 1.75rem; }
+    .hero-tags { display: flex; flex-wrap: wrap; gap: 0.45rem; margin-bottom: 2.25rem; }
+    .tag { background: var(--bg2); border: 1px solid var(--border); color: var(--text); font-size: 0.72rem; font-weight: 500; padding: 0.28rem 0.8rem; border-radius: 9999px; }
+    .hero-ctas { display: flex; gap: 0.875rem; flex-wrap: wrap; }
+    .btn-dark { background: var(--dark); color: #fff; font-weight: 700; font-size: 0.875rem; padding: 0.72rem 1.7rem; border-radius: 0.3rem; text-decoration: none; transition: background 0.2s; display: inline-block; }
+    .btn-dark:hover { background: var(--dark2); }
+    .btn-outline-dark { background: transparent; border: 1.5px solid var(--dark); color: var(--dark); font-size: 0.875rem; font-weight: 600; padding: 0.72rem 1.7rem; border-radius: 0.3rem; text-decoration: none; transition: background 0.2s; display: inline-block; }
+    .btn-outline-dark:hover { background: rgba(18,25,42,0.06); }
+
+    /* Hero photo */
+    .hero-photo-col { position: relative; overflow: hidden; }
+    @media (max-width: 860px) { .hero-photo-col { height: 55vw; max-height: 400px; order: 1; } }
+    .hero-photo-col img { width: 100%; height: 100%; object-fit: cover; object-position: top center; display: block; }
+    .hero-photo-col::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(245,243,239,0.3) 0%, transparent 40%); }
+
+    /* Book badge — clickable */
+    .book-float {
+      position: absolute; bottom: 1.75rem; left: 1.75rem; z-index: 2;
+      background: rgba(255,255,255,0.96); backdrop-filter: blur(8px);
+      border: 1px solid rgba(184,135,42,0.35); border-radius: 0.625rem;
+      padding: 0.875rem 1.1rem; display: flex; align-items: center; gap: 0.875rem;
+      box-shadow: 0 8px 32px rgba(18,25,42,0.15);
+      text-decoration: none; transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .book-float:hover { box-shadow: 0 12px 40px rgba(18,25,42,0.22); transform: translateY(-2px); }
+    .book-float img { width: 42px; border-radius: 0.2rem; }
+    .bf-text strong { color: var(--dark); display: block; font-size: 0.8rem; margin-bottom: 0.1rem; }
+    .bf-text span { color: var(--muted); font-size: 0.7rem; }
+    .bf-cta { font-size: 0.68rem; font-weight: 700; color: var(--gold); text-transform: uppercase; letter-spacing: 0.06em; margin-top: 0.2rem; display: block; }
+
+    /* ── SCHARMER PULL QUOTE ── */
+    .pull-quote-wrap { background: var(--dark); padding: 3rem 2.5rem; }
+    .pull-quote { max-width: 860px; margin: 0 auto; text-align: center; }
+    .pull-quote-mark { font-family: 'Cormorant Garamond', serif; font-size: 4rem; line-height: 0.5; color: var(--gold); display: block; margin-bottom: 1rem; }
+    .pull-quote p { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.2rem, 2.5vw, 1.6rem); font-style: italic; color: #dde2ec; line-height: 1.7; margin-bottom: 1.25rem; }
+    .pull-quote-attr { font-size: 0.78rem; font-weight: 600; letter-spacing: 0.08em; color: var(--gold-lt); text-transform: uppercase; }
+
+    /* ── STATS ── */
+    .divider { max-width: 1200px; margin: 0 auto; height: 1px; background: var(--border); }
+    .stats { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(4,1fr); padding: 2.75rem 2.5rem; gap: 2rem; background: var(--white); }
+    @media (max-width: 700px) { .stats { grid-template-columns: repeat(2,1fr); padding: 2rem 1.5rem; } }
+    .stat { text-align: center; }
+    .stat-n { font-family: 'Cormorant Garamond', serif; font-size: 2.8rem; font-weight: 600; color: var(--gold); line-height: 1; margin-bottom: 0.3rem; }
+    .stat-l { font-size: 0.72rem; color: var(--muted); font-weight: 500; letter-spacing: 0.04em; }
+
+    /* ── SECTION BASE ── */
+    .section { padding: 5.5rem 2.5rem; }
+    @media (max-width: 700px) { .section { padding: 3.5rem 1.5rem; } }
+    .si { max-width: 1200px; margin: 0 auto; }
+    .s-eye { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.16em; color: var(--gold); text-transform: uppercase; margin-bottom: 0.9rem; display: block; }
+    .s-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.9rem,3.5vw,2.8rem); font-weight: 300; color: var(--dark); line-height: 1.18; margin-bottom: 0.65rem; }
+    .s-sub { color: var(--muted); font-size: 0.92rem; max-width: 34rem; }
+
+    /* ── BOOK SECTION ── */
+    .book-bg { background: var(--white); }
+    .book-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+    @media (max-width: 860px) { .book-grid { grid-template-columns: 1fr; gap: 3rem; } }
+    .book-img-wrap { display: flex; justify-content: center; align-items: center; gap: 2rem; flex-wrap: wrap; }
+    .book-img { width: 55%; max-width: 230px; border-radius: 0.5rem; box-shadow: 0 30px 60px rgba(18,25,42,0.2); }
+    .bba-badge { width: 120px; }
+    .award-stack { display: flex; flex-direction: column; gap: 0.65rem; margin-bottom: 1.75rem; }
+    .award-pill { display: flex; align-items: flex-start; gap: 0.75rem; background: var(--gold-dim); border: 1px solid rgba(184,135,42,0.2); border-radius: 0.45rem; padding: 0.7rem 0.95rem; }
+    .ap-icon { font-size: 0.95rem; flex-shrink: 0; margin-top: 0.05rem; }
+    .ap-text { font-size: 0.77rem; line-height: 1.5; }
+    .ap-text strong { color: var(--dark); display: block; margin-bottom: 0.1rem; font-size: 0.79rem; }
+    .ap-text span { color: var(--muted); }
+    .ap-text a { color: var(--muted); text-decoration: none; border-bottom: 1px solid rgba(107,118,144,0.35); }
+    .book-desc { color: var(--muted); font-size: 0.9rem; line-height: 1.82; margin-bottom: 1.75rem; }
+
+    /* ── ENDORSEMENTS ── */
+    .end-bg { background: var(--bg2); }
+    .end-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; margin-top: 3rem; }
+    @media (max-width: 900px) { .end-grid { grid-template-columns: 1fr; } }
+    .end-card { background: var(--white); border: 1px solid var(--border); border-radius: 0.75rem; padding: 2rem; display: flex; flex-direction: column; gap: 1.25rem; position: relative; overflow: hidden; box-shadow: 0 2px 12px rgba(18,25,42,0.05); }
+    .end-card::before { content: '\201C'; position: absolute; top: 0.5rem; right: 1.25rem; font-family: 'Cormorant Garamond', serif; font-size: 5rem; line-height: 1; color: var(--gold-dim); pointer-events: none; }
+    .end-q { font-family: 'Cormorant Garamond', serif; font-size: 1.05rem; font-style: italic; line-height: 1.78; color: #3a4460; flex: 1; }
+    .end-rule { border: none; border-top: 1px solid var(--border); }
+    .end-name { font-weight: 700; font-size: 0.875rem; color: var(--dark); }
+    .end-pos { font-size: 0.74rem; color: var(--muted); line-height: 1.5; margin-top: 0.2rem; }
+
+    /* ── SERVICES ── */
+    .svc-bg { background: var(--bg); }
+    .svc-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.25rem; margin-top: 3rem; }
+    @media (max-width: 900px) { .svc-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 540px) { .svc-grid { grid-template-columns: 1fr; } }
+    .svc { background: var(--white); border: 1px solid var(--border); border-radius: 0.75rem; padding: 1.75rem 1.5rem; text-decoration: none; display: block; transition: transform 0.2s, box-shadow 0.2s; position: relative; overflow: hidden; box-shadow: 0 2px 8px rgba(18,25,42,0.04); }
+    .svc:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(18,25,42,0.1); }
+    .svc-icon { width: 2.75rem; height: 2.75rem; border-radius: 0.6rem; display: flex; align-items: center; justify-content: center; font-size: 1.25rem; margin-bottom: 1rem; }
+    .svc-t { font-size: 0.9rem; font-weight: 700; color: var(--dark); margin-bottom: 0.35rem; }
+    .svc-d { font-size: 0.78rem; color: var(--muted); line-height: 1.55; }
+    .svc-arrow { position: absolute; bottom: 1.1rem; right: 1.25rem; font-size: 0.8rem; opacity: 0; transition: opacity 0.2s; font-weight: 700; }
+    .svc:hover .svc-arrow { opacity: 1; }
+
+    /* ── GALLERY ── */
+    .gal-bg { background: var(--dark); }
+    .gallery-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; grid-template-rows: 280px 280px; gap: 0.75rem; margin-top: 3rem; border-radius: 0.75rem; overflow: hidden; }
+    @media (max-width: 860px) { .gallery-grid { grid-template-columns: 1fr 1fr; grid-template-rows: 200px 200px 200px; } }
+    @media (max-width: 540px) { .gallery-grid { grid-template-columns: 1fr; grid-template-rows: auto; } }
+    .gal-item { overflow: hidden; position: relative; cursor: pointer; }
+    .gal-item.tall { grid-row: span 2; }
+    .gal-item img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s; filter: brightness(0.9); }
+    .gal-item:hover img { transform: scale(1.04); filter: brightness(1); }
+    .gal-cap { position: absolute; bottom: 0; left: 0; right: 0; padding: 0.75rem 1rem; background: linear-gradient(transparent, rgba(18,25,42,0.7)); font-size: 0.72rem; color: rgba(255,255,255,0.8); font-weight: 500; opacity: 0; transition: opacity 0.3s; }
+    .gal-item:hover .gal-cap { opacity: 1; }
+
+    /* ── CLIENTS ── */
+    .cl-bg { background: var(--white); }
+    .cl-scroll-wrap { overflow: hidden; position: relative; margin-top: 2.5rem; }
+    .cl-scroll-wrap::before, .cl-scroll-wrap::after { content: ''; position: absolute; top: 0; bottom: 0; width: 80px; z-index: 2; }
+    .cl-scroll-wrap::before { left: 0; background: linear-gradient(to right, var(--white), transparent); }
+    .cl-scroll-wrap::after { right: 0; background: linear-gradient(to left, var(--white), transparent); }
+    .cl-track { display: flex; align-items: center; gap: 3.5rem; animation: scroll 35s linear infinite; width: max-content; padding: 1rem 0; }
+    .cl-track:hover { animation-play-state: paused; }
+    @keyframes scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+    .cl-logo { height: 2.2rem; max-width: 110px; object-fit: contain; opacity: 0.45; filter: grayscale(30%); transition: opacity 0.25s, filter 0.25s; flex-shrink: 0; }
+    .cl-logo:hover { opacity: 0.9; filter: none; }
+
+    /* ── TESTIMONIALS ── */
+    .test-bg { background: var(--bg2); }
+    .test-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 1.5rem; margin-top: 3rem; }
+    @media (max-width: 700px) { .test-grid { grid-template-columns: 1fr; } }
+    .test-card { background: var(--white); border: 1px solid var(--border); border-radius: 0.75rem; padding: 1.75rem; box-shadow: 0 2px 8px rgba(18,25,42,0.04); }
+    .test-q { font-family: 'Cormorant Garamond', serif; font-size: 1.05rem; font-style: italic; line-height: 1.78; color: #3a4460; margin-bottom: 1.25rem; }
+    .test-auth { display: flex; align-items: center; gap: 0.75rem; }
+    .test-photo { width: 2.4rem; height: 2.4rem; border-radius: 50%; object-fit: cover; border: 1px solid var(--border); }
+    .test-name { font-size: 0.875rem; font-weight: 700; color: var(--dark); }
+    .test-pos { font-size: 0.73rem; color: var(--muted); }
+
+    /* ── ABOUT + PHILOSOPHY ── */
+    .about-bg { background: var(--white); }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
+    @media (max-width: 860px) { .about-grid { grid-template-columns: 1fr; gap: 3rem; } }
+    .about-photo { width: 100%; border-radius: 0.75rem; box-shadow: 0 20px 50px rgba(18,25,42,0.15); display: block; }
+    .trophy-row { display: flex; align-items: center; gap: 1rem; background: var(--gold-dim); border: 1px solid rgba(184,135,42,0.2); border-radius: 0.5rem; padding: 0.875rem 1.1rem; margin-top: 1.5rem; }
+    .trophy-row img { width: 60px; border-radius: 0.3rem; }
+    .trophy-text { font-size: 0.8rem; color: var(--text); line-height: 1.5; }
+    .trophy-text strong { color: var(--gold); display: block; margin-bottom: 0.1rem; }
+    .why-item { display: flex; gap: 0.875rem; align-items: flex-start; margin-bottom: 1rem; }
+    .why-dot { color: var(--gold); font-size: 0.75rem; margin-top: 0.22rem; flex-shrink: 0; }
+    .why-text { font-size: 0.875rem; color: var(--muted); line-height: 1.7; }
+    .why-text strong { color: var(--text); }
+
+    /* ── ARTICLES ── */
+    .art-bg { background: var(--bg2); }
+    .art-featured { display: grid; grid-template-columns: repeat(2,1fr); gap: 1.25rem; margin-bottom: 3rem; }
+    @media (max-width: 700px) { .art-featured { grid-template-columns: 1fr; } }
+    .art-card { background: var(--white); border: 1px solid var(--border); border-radius: 0.75rem; padding: 1.5rem; box-shadow: 0 2px 8px rgba(18,25,42,0.04); }
+    .art-tag { display: inline-block; border-radius: 9999px; padding: 0.2rem 0.7rem; font-size: 0.68rem; font-weight: 600; letter-spacing: 0.05em; margin-bottom: 0.875rem; }
+    .art-h { font-size: 0.92rem; font-weight: 700; color: var(--dark); margin-bottom: 0.5rem; line-height: 1.4; }
+    .art-p { font-size: 0.8rem; color: var(--muted); line-height: 1.65; margin-bottom: 1rem; }
+    .art-link { color: var(--gold); font-size: 0.78rem; font-weight: 600; text-decoration: none; border-bottom: 1px solid rgba(184,135,42,0.3); }
+    .art-link:hover { border-color: var(--gold); }
+    .art-section-title { font-size: 0.85rem; font-weight: 700; color: var(--dark); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 1.25rem; padding-bottom: 0.65rem; border-bottom: 2px solid var(--gold-dim); }
+    .globes-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1rem; margin-bottom: 3rem; }
+    @media (max-width: 700px) { .globes-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 480px) { .globes-grid { grid-template-columns: 1fr; } }
+    .globes-card { background: var(--white); border: 1px solid var(--border); border-radius: 0.65rem; padding: 1.1rem 1.25rem; }
+    .globes-h { font-size: 0.82rem; font-weight: 700; color: var(--dark); margin-bottom: 0.3rem; line-height: 1.4; }
+    .globes-p { font-size: 0.75rem; color: var(--muted); margin-bottom: 0.6rem; line-height: 1.5; }
+    .pub-list { background: var(--white); border: 1px solid var(--border); border-radius: 0.75rem; padding: 1.75rem; display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    @media (max-width: 640px) { .pub-list { grid-template-columns: 1fr; } }
+    .pub-item { display: flex; gap: 0.6rem; align-items: flex-start; font-size: 0.82rem; color: var(--muted); line-height: 1.6; }
+    .pub-item a { color: var(--text); text-decoration: none; }
+    .pub-item a:hover { color: var(--gold); }
+
+    /* ── CONTACT ── */
+    .contact-bg { background: var(--dark); }
+    .contact-center { max-width: 640px; margin: 0 auto; text-align: center; }
+    .contact-center .s-title { color: #fff; }
+    .contact-center .s-sub { color: #8899aa; margin: 0 auto 2.5rem; }
+    .contact-center .s-eye { color: var(--gold-lt); }
+    .contact-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 1rem; }
+    @media (max-width: 480px) { .contact-grid { grid-template-columns: 1fr; } }
+    .cc { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: 0.75rem; padding: 1.5rem 1.25rem; text-align: center; text-decoration: none; color: #dde2ec; transition: background 0.2s, border-color 0.2s; display: block; }
+    .cc:hover { background: rgba(255,255,255,0.1); border-color: rgba(184,135,42,0.4); }
+    .cc-icon { font-size: 1.35rem; margin-bottom: 0.5rem; }
+    .cc-label { font-size: 0.66rem; color: #6b7894; letter-spacing: 0.09em; text-transform: uppercase; margin-bottom: 0.3rem; }
+    .cc-val { font-size: 0.85rem; font-weight: 500; color: #f0f2f7; }
+
+    /* ── FOOTER ── */
+    footer { border-top: 1px solid rgba(255,255,255,0.08); padding: 1.75rem 2.5rem; background: var(--dark); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; font-size: 0.75rem; color: #4a5568; }
+    footer a { color: #4a5568; text-decoration: none; }
+    footer a:hover { color: var(--gold-lt); }
+    .f-links { display: flex; gap: 1.5rem; }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
+    .fade { animation: fadeUp 0.8s cubic-bezier(.16,1,.3,1) both; }
+    .d1{animation-delay:0.05s} .d2{animation-delay:0.15s} .d3{animation-delay:0.25s} .d4{animation-delay:0.38s}
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <a href="index.html" class="logo">Danny <em>Gal</em></a>
+  <nav>
+    <a href="#about" class="nav-link">About</a>
+    <a href="services.html" class="nav-link">Services</a>
+    <a href="book-excerpt.html" class="nav-link">Book</a>
+    <a href="booking.html" class="nav-link">Speaking</a>
+    <a href="#articles" class="nav-link">Articles</a>
+    <a href="#contact" class="btn-cta">Get in Touch</a>
+  </nav>
+</header>
+
+<!-- RIBBON -->
+<div class="ribbon">
+  <div class="ri">
+    <span>🏆</span>
+    <span>RUNNER-UP &mdash; 2025 Leadership Book of the Year &mdash; <a href="https://leadership.global/" target="_blank">Institute of Leadership</a></span>
+  </div>
+  <div class="rsep"></div>
+  <div class="ri">
+    <span>⭐</span>
+    <span>SHORTLISTED &mdash; 2026 <a href="https://www.businessbookawards.co.uk/" target="_blank">Business Book Awards</a> &mdash; Results September 2026</span>
+  </div>
+</div>
+
+<div class="spacer"></div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-text">
+    <div class="gold-bar fade d1"></div>
+    <p class="eyebrow fade d1">Organizational Consultant &amp; Executive Coach</p>
+    <h1 class="hero-h1 fade d2">Where Deep<br>Listening Meets<br><em>Strategic Change</em></h1>
+    <p class="hero-desc fade d3">Thirty years partnering with CEOs and leadership teams at HP, Teva, Monday.com, and Intel — helping them unlock their fullest potential through deeper, more authentic connection.</p>
+    <div class="hero-tags fade d3">
+      <span class="tag">MA Psychology</span>
+      <span class="tag">MPA Harvard Kennedy School</span>
+      <span class="tag">MIT Sloan Teaching Faculty</span>
+      <span class="tag">30+ Years</span>
+    </div>
+    <div class="hero-ctas fade d4">
+      <a href="services.html" class="btn-dark">Explore Services</a>
+      <a href="booking.html" class="btn-outline-dark">Book a Talk</a>
+    </div>
+  </div>
+  <div class="hero-photo-col fade d2">
+    <img src="photo-portrait.jpg" alt="Danny Gal">
+    <a href="https://www.amazon.com/s?k=The+Belonging+Paradox+Danny+Gal" target="_blank" class="book-float">
+      <img src="book3d.jpg" alt="The Belonging Paradox">
+      <div class="bf-text">
+        <strong>The Belonging Paradox</strong>
+        <span>Out Now &middot; LID Publishing</span>
+        <span class="bf-cta">Buy on Amazon →</span>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- SCHARMER PULL QUOTE -->
+<div class="pull-quote-wrap">
+  <div class="pull-quote">
+    <span class="pull-quote-mark">&ldquo;</span>
+    <p>A vital guide for changemakers, this book provides the tools to shape a more inclusive and just future… explores the empathy crisis at the heart of global challenges.</p>
+    <span class="pull-quote-attr">Otto Scharmer &mdash; Senior Lecturer, MIT Sloan &middot; Author of Theory U &middot; Co-founder, Presencing Institute</span>
+  </div>
+</div>
+
+<!-- STATS -->
+<div style="background:var(--white);border-bottom:1px solid var(--border);">
+  <div class="stats">
+    <div class="stat"><div class="stat-n">30<span style="font-size:1.4rem">+</span></div><div class="stat-l">Years of Experience</div></div>
+    <div class="stat"><div class="stat-n">100<span style="font-size:1.4rem">+</span></div><div class="stat-l">CEOs &amp; Executives Coached</div></div>
+    <div class="stat"><div class="stat-n">50<span style="font-size:1.4rem">+</span></div><div class="stat-l">Organizations Served</div></div>
+    <div class="stat"><div class="stat-n">3</div><div class="stat-l">Continents of Impact</div></div>
+  </div>
+</div>
+
+<!-- BOOK -->
+<section class="section book-bg">
+  <div class="si">
+    <div class="book-grid">
+      <div class="book-img-wrap">
+        <img src="book3d.jpg" alt="The Belonging Paradox" class="book-img">
+        <img src="bba2025.png" alt="Business Book Awards 2025 Finalist" class="bba-badge" onerror="this.style.display='none'">
+      </div>
+      <div>
+        <span class="s-eye">Latest Publication</span>
+        <h2 class="s-title">The Belonging<br>Paradox</h2>
+        <p style="font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--gold);font-size:1rem;margin-bottom:1.75rem;">How to Solve the Global Empathy Crisis</p>
+        <div class="award-stack">
+          <div class="award-pill">
+            <span class="ap-icon">🏆</span>
+            <div class="ap-text">
+              <strong>Runner-Up — 2025 Leadership Book of the Year</strong>
+              <span><a href="https://leadership.global/" target="_blank">Institute of Leadership</a></span>
+            </div>
+          </div>
+          <div class="award-pill">
+            <span class="ap-icon">⭐</span>
+            <div class="ap-text">
+              <strong>Shortlisted — 2026 Business Book Awards</strong>
+              <span>Results September 2026 &middot; <a href="https://www.businessbookawards.co.uk/" target="_blank">businessbookawards.co.uk</a></span>
+            </div>
+          </div>
+        </div>
+        <p class="book-desc">A groundbreaking exploration of diversity, equity, inclusion, and belonging in modern organizations. Drawing on thirty years of work — from Fortune 500 boardrooms to Israeli-Palestinian peace dialogues — Danny Gal reveals how authentic connection is the missing key to leadership, culture, and lasting change.</p>
+        <div style="display:flex;gap:0.875rem;flex-wrap:wrap;">
+          <a href="https://www.amazon.com/s?k=The+Belonging+Paradox+Danny+Gal" target="_blank" class="btn-dark">Buy on Amazon</a>
+          <a href="book-excerpt.html" class="btn-outline-dark">Read Free Excerpt</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ENDORSEMENTS -->
+<section class="section end-bg">
+  <div class="si">
+    <span class="s-eye">What Leaders Are Saying</span>
+    <h2 class="s-title">Endorsed by MIT, Harvard<br>&amp; Global Thought Leaders</h2>
+    <div class="end-grid">
+      <div class="end-card">
+        <p class="end-q">"A vital guide for changemakers, this book provides the tools to shape a more inclusive and just future… explores the empathy crisis at the heart of global challenges."</p>
+        <hr class="end-rule">
+        <div><div class="end-name">Otto Scharmer</div><div class="end-pos">Senior Lecturer, MIT Sloan School of Management<br>Author of Theory U &middot; Co-founder, Presencing Institute</div></div>
+      </div>
+      <div class="end-card">
+        <p class="end-q">"Danny Gal offers powerful methods for bridging divides in our increasingly polarized world… an invaluable guide for leaders, negotiators, and changemakers."</p>
+        <hr class="end-rule">
+        <div><div class="end-name">Professor Daniel L. Shapiro</div><div class="end-pos">Author of Negotiating the Nonnegotiable<br>Founder &amp; Director, Harvard International Negotiation Program</div></div>
+      </div>
+      <div class="end-card">
+        <p class="end-q">"Danny Gal distills decades of work building empathy between Israelis and Palestinians — showing that building trust with the 'other' is not a task limited to saints but a practice that all of us can and must take up."</p>
+        <hr class="end-rule">
+        <div><div class="end-name">Douglas A. Johnson</div><div class="end-pos">Lecturer in Public Policy, Harvard Kennedy School<br>Former Faculty Director, Carr Center for Human Rights</div></div>
+      </div>
+      <div class="end-card">
+        <p class="end-q">"This is a deeply personal and powerful book showing how empathy, listening and connected leadership can transform not just our personal relationships and our organisations, but also wider society as a whole."</p>
+        <hr class="end-rule">
+        <div><div class="end-name">Steven D'Souza</div><div class="end-pos">Senior Partner, Korn Ferry<br>Leadership &amp; Professional Development</div></div>
+      </div>
+      <div class="end-card">
+        <p class="end-q">"Danny's work played a meaningful role in helping me and key people in our organization evolve, build stronger relationships, and improve communication as our company scaled."</p>
+        <hr class="end-rule">
+        <div><div class="end-name">Daniel Lereya</div><div class="end-pos">Chief Product &amp; Technology Officer<br>Monday.com</div></div>
+      </div>
+      <div class="end-card">
+        <p class="end-q">"Danny is one of the most outstanding organizational consultants I have worked with. His coaching was instrumental to my personal growth as a manager and a leader."</p>
+        <hr class="end-rule">
+        <div><div class="end-name">Etai Beck</div><div class="end-pos">CEO, Folloze</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="section svc-bg">
+  <div class="si">
+    <span class="s-eye">How I Work</span>
+    <h2 class="s-title">Services</h2>
+    <p class="s-sub">From one-on-one executive coaching to organization-wide transformation programs</p>
+    <div class="svc-grid">
+      <a href="executive-coaching.html" class="svc">
+        <div class="svc-icon" style="background:#dbeafe;color:#1d4ed8;">🎯</div>
+        <div class="svc-t">Executive Coaching</div>
+        <div class="svc-d">Connecting to your deeper source of leadership</div>
+        <span class="svc-arrow" style="color:#1d4ed8;">→</span>
+      </a>
+      <a href="management-team.html" class="svc">
+        <div class="svc-icon" style="background:#f3e8ff;color:#7c3aed;">👥</div>
+        <div class="svc-t">Management Team Development</div>
+        <div class="svc-d">From team-effectiveness to shared leadership</div>
+        <span class="svc-arrow" style="color:#7c3aed;">→</span>
+      </a>
+      <a href="org-culture.html" class="svc">
+        <div class="svc-icon" style="background:#ffedd5;color:#c2410c;">📈</div>
+        <div class="svc-t">Organizational Culture Change</div>
+        <div class="svc-d">The negating values model — my latest development</div>
+        <span class="svc-arrow" style="color:#c2410c;">→</span>
+      </a>
+      <a href="leadership-development.html" class="svc">
+        <div class="svc-icon" style="background:#dcfce7;color:#15803d;">✨</div>
+        <div class="svc-t">Leadership Development Programs</div>
+        <div class="svc-d">From execution to strategic leadership</div>
+        <span class="svc-arrow" style="color:#15803d;">→</span>
+      </a>
+      <a href="vision-strategy.html" class="svc">
+        <div class="svc-icon" style="background:#fef9c3;color:#854d0e;">💡</div>
+        <div class="svc-t">Vision, Strategy and Impact</div>
+        <div class="svc-d">Refine your unique contribution and the why</div>
+        <span class="svc-arrow" style="color:#854d0e;">→</span>
+      </a>
+      <a href="deib.html" class="svc">
+        <div class="svc-icon" style="background:#fce7f3;color:#be185d;">❤️</div>
+        <div class="svc-t">DEI&amp;B</div>
+        <div class="svc-d">Diversity, equity, inclusion and belonging</div>
+        <span class="svc-arrow" style="color:#be185d;">→</span>
+      </a>
+      <a href="startup-founders.html" class="svc">
+        <div class="svc-icon" style="background:#e0e7ff;color:#3730a3;">🚀</div>
+        <div class="svc-t">Start-Up Founders Coaching</div>
+        <div class="svc-d">Building the right partnership for your company</div>
+        <span class="svc-arrow" style="color:#3730a3;">→</span>
+      </a>
+      <a href="booking.html" class="svc">
+        <div class="svc-icon" style="background:#ccfbf1;color:#0f766e;">💬</div>
+        <div class="svc-t">Conference Design &amp; Facilitation</div>
+        <div class="svc-d">Co-creating a shared desired future</div>
+        <span class="svc-arrow" style="color:#0f766e;">→</span>
+      </a>
+      <a href="booking.html" class="svc">
+        <div class="svc-icon" style="background:#ede9fe;color:#6d28d9;">🎤</div>
+        <div class="svc-t">Public Speaking</div>
+        <div class="svc-d">Thought-provoking talks on leadership and culture</div>
+        <span class="svc-arrow" style="color:#6d28d9;">→</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- IN ACTION GALLERY -->
+<section class="section gal-bg">
+  <div class="si">
+    <span class="s-eye" style="color:#e8c97a;">In Action</span>
+    <h2 class="s-title" style="color:#fff;">Moments That Matter</h2>
+    <div class="gallery-grid">
+      <div class="gal-item tall">
+        <img src="photo-trophy.jpg" alt="Danny Gal with the Leadership Awards 2025 Runner-Up trophy" style="object-position:center top;">
+        <div class="gal-cap">Leadership Book of the Year — Runner-Up, 2025</div>
+      </div>
+      <div class="gal-item">
+        <img src="photo-workshop1.jpg" alt="Danny facilitating a workshop">
+        <div class="gal-cap">Workshop facilitation</div>
+      </div>
+      <div class="gal-item">
+        <img src="photo-jacket.jpg" alt="Danny Gal" style="object-position:center top;">
+        <div class="gal-cap"></div>
+      </div>
+      <div class="gal-item">
+        <img src="photo-book.jpg" alt="Danny Gal with his book">
+        <div class="gal-cap">The Belonging Paradox — Out Now</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CLIENTS — scrolling marquee -->
+<section class="section cl-bg" style="padding-top:4rem;padding-bottom:4rem;">
+  <div class="si">
+    <span class="s-eye" style="text-align:center;display:block;">Trusted By</span>
+    <h2 class="s-title" style="text-align:center;margin-bottom:0;">Clients &amp; Partners</h2>
+  </div>
+  <div class="cl-scroll-wrap">
+    <div class="cl-track">
+      <!-- First set -->
+      <img src="https://dapulse-res.cloudinary.com/image/upload/f_auto,q_auto/remote_mondaycom_static/img/monday-logo-x2.png" alt="Monday.com" class="cl-logo">
+      <img src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/690ae238d0360048eb2c30d3/bf34b42e5_Wixcom_website_logosvg.png" alt="Wix" class="cl-logo">
+      <img src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/690ae238d0360048eb2c30d3/501bb0795_Teva_Pharmaceuticals_logo.png" alt="Teva" class="cl-logo">
+      <img src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/690ae238d0360048eb2c30d3/192986377_Intel_logo_2006-2020.png" alt="Intel" class="cl-logo">
+      <img src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/690ae238d0360048eb2c30d3/0b986ad61_hp-indigo-logo-png_seeklogo-239391.png" alt="HP Indigo" class="cl-logo">
+      <img src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/690ae238d0360048eb2c30d3/a6e22b4b4_Juniper_Networks_logosvg.png" alt="Juniper" class="cl-logo">
+      <img src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/690ae238d0360048eb2c30d3/a69a5b572_BritishCouncil_Logo.jpg" alt="British Council" class="cl-logo">
+      <img src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/690ae238d0360048eb2c30d3/bb4ad1ae4_TRANSCOM-LOGO-GREEN1.png" alt="Transcom" class="cl-logo">
+      <img src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/690ae238d0360048eb2c30d3/266841c3e_Yotvata_logo-836x1024d110a0.jpg" alt="Yotvata" class="cl-logo">
+      <img src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/690ae238d0360048eb2c30d3/b40b2b5a8_exanet-logo-6361F68ED9-seeklogocom1.jpg" alt="Exanet" class="cl-logo">
+      <img src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/690ae238d0360048eb2c30d3/83166fe91_Aqua-Logo-Variations-2022.png" alt="Aqua Security" class="cl-logo">
+      <img src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/690ae238d0360048eb2c30d3/2b41bc94d_Papaya_Logo_RGB_Horizontal_P_1.png" alt="Papaya Global" class="cl-logo">
+      <img src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/690ae238d0360048eb2c30d3/4437e82c0_WingateInstitute.jpg" alt="Wingate" class="cl-logo">
+      <img src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/690ae238d0360048eb2c30d3/400e0fd2a_logo-autocenter.png" alt="Auto Center" class="cl-logo">
+      <img src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/690ae238d0360048eb2c30d3/c0ef28197_83a17b3fa86b2ff252eb7bfbe457b87ef60cae91.png" alt="Ceragon" class="cl-logo">
+      <img src="https://www.sapir.ac.il/themes/custom/sapir/logo.svg" alt="Sapir College" class="cl-logo">
+      <img src="https://www.strauss-group.com/wp-content/blogs.dir/3/files/sites/3/strauss_water_eng.jpg" alt="Strauss Water" class="cl-logo">
+      <!-- Duplicate for seamless loop -->
+      <img src="https://dapulse-res.cloudinary.com/image/upload/f_auto,q_auto/remote_mondaycom_static/img/monday-logo-x2.png" alt="Monday.com" class="cl-logo">
+      <img src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/690ae238d0360048eb2c30d3/bf34b42e5_Wixcom_website_logosvg.png" alt="Wix" class="cl-logo">
+      <img src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/690ae238d0360048eb2c30d3/501bb0795_Teva_Pharmaceuticals_logo.png" alt="Teva" class="cl-logo">
+      <img src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/690ae238d0360048eb2c30d3/192986377_Intel_logo_2006-2020.png" alt="Intel" class="cl-logo">
+      <img src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/690ae238d0360048eb2c30d3/0b986ad61_hp-indigo-logo-png_seeklogo-239391.png" alt="HP Indigo" class="cl-logo">
+      <img src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/690ae238d0360048eb2c30d3/a6e22b4b4_Juniper_Networks_logosvg.png" alt="Juniper" class="cl-logo">
+      <img src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/690ae238d0360048eb2c30d3/a69a5b572_BritishCouncil_Logo.jpg" alt="British Council" class="cl-logo">
+      <img src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/690ae238d0360048eb2c30d3/bb4ad1ae4_TRANSCOM-LOGO-GREEN1.png" alt="Transcom" class="cl-logo">
+      <img src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/690ae238d0360048eb2c30d3/266841c3e_Yotvata_logo-836x1024d110a0.jpg" alt="Yotvata" class="cl-logo">
+      <img src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/690ae238d0360048eb2c30d3/b40b2b5a8_exanet-logo-6361F68ED9-seeklogocom1.jpg" alt="Exanet" class="cl-logo">
+      <img src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/690ae238d0360048eb2c30d3/83166fe91_Aqua-Logo-Variations-2022.png" alt="Aqua Security" class="cl-logo">
+      <img src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/690ae238d0360048eb2c30d3/2b41bc94d_Papaya_Logo_RGB_Horizontal_P_1.png" alt="Papaya Global" class="cl-logo">
+      <img src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/690ae238d0360048eb2c30d3/4437e82c0_WingateInstitute.jpg" alt="Wingate" class="cl-logo">
+      <img src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/690ae238d0360048eb2c30d3/400e0fd2a_logo-autocenter.png" alt="Auto Center" class="cl-logo">
+      <img src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/690ae238d0360048eb2c30d3/c0ef28197_83a17b3fa86b2ff252eb7bfbe457b87ef60cae91.png" alt="Ceragon" class="cl-logo">
+      <img src="https://www.sapir.ac.il/themes/custom/sapir/logo.svg" alt="Sapir College" class="cl-logo">
+      <img src="https://www.strauss-group.com/wp-content/blogs.dir/3/files/sites/3/strauss_water_eng.jpg" alt="Strauss Water" class="cl-logo">
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="section test-bg">
+  <div class="si">
+    <span class="s-eye">Client Voices</span>
+    <h2 class="s-title">What Clients Say</h2>
+    <div class="test-grid">
+      <div class="test-card">
+        <p class="test-q">"Danny has a unique combination of deep personal/people skill together with a wide organizational understanding… huge value."</p>
+        <div class="test-auth">
+          <img src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/690ae238d0360048eb2c30d3/522b0002c_yoni.jpeg" alt="Yoni Osherov" class="test-photo" onerror="this.style.display='none'">
+          <div><div class="test-name">Yoni Osherov</div><div class="test-pos">CRO, Monday.com</div></div>
+        </div>
+      </div>
+      <div class="test-card">
+        <p class="test-q">"Empowering, thought-provoking and innovative."</p>
+        <div class="test-auth">
+          <img src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/690ae238d0360048eb2c30d3/6949a0e1d_ram.jpeg" alt="Ram Srugo" class="test-photo" onerror="this.style.display='none'">
+          <div><div class="test-name">Ram Srugo</div><div class="test-pos">CEO, Yotvata</div></div>
+        </div>
+      </div>
+      <div class="test-card">
+        <p class="test-q">"Danny is a seasoned social entrepreneur and a great strategic thinker. I highly recommend Danny as a consultant or facilitator for innovative processes."</p>
+        <div class="test-auth">
+          <img src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/690ae238d0360048eb2c30d3/e37f1ccda_paz.jpeg" alt="Paz Cohen" class="test-photo" onerror="this.style.display='none'">
+          <div><div class="test-name">Paz Cohen</div><div class="test-pos">Head of Education, Star for Life Jerusalem</div></div>
+        </div>
+      </div>
+      <div class="test-card">
+        <p class="test-q">"Danny's work played a meaningful role in helping me and key people in our organization evolve, build stronger relationships, and improve communication as our company scaled."</p>
+        <div class="test-auth">
+          <div><div class="test-name">Daniel Lereya</div><div class="test-pos">Chief Product &amp; Technology Officer, Monday.com</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT + PHILOSOPHY MERGED -->
+<section class="section about-bg" id="about">
+  <div class="si">
+    <div class="about-grid">
+      <div>
+        <img src="photo-about.jpg" alt="Danny Gal" class="about-photo">
+        <div class="trophy-row">
+          <img src="photo-trophy.jpg" alt="Runner-Up Trophy 2025" onerror="this.style.display='none'">
+          <div class="trophy-text">
+            <strong>🏆 Runner-Up — 2025 Leadership Book of the Year</strong>
+            The Belonging Paradox · Institute of Leadership
+          </div>
+        </div>
+      </div>
+      <div>
+        <span class="s-eye">About Me &amp; My Approach</span>
+        <h2 class="s-title">Hello,<br>I'm Danny Gal</h2>
+        <p style="font-size:0.95rem;color:var(--muted);line-height:1.82;margin-bottom:1.5rem;">An organizational consultant and executive coach with over 30 years of experience. I hold an <strong style="color:var(--text);">MA in Psychology</strong> from Bar-Ilan University and an <strong style="color:var(--text);">MPA in Public Policy</strong> from Harvard University.</p>
+
+        <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:400;color:var(--dark);margin-bottom:0.35rem;">Listen. Challenge. <em style="font-style:italic;color:var(--gold);">Co-Create.</em></h3>
+        <p style="font-size:0.88rem;color:var(--muted);line-height:1.8;margin-bottom:1.75rem;">I believe that <strong style="color:var(--text);">listening</strong> is at the heart of my work — an art that takes a lifetime to master. True listening means showing curiosity, wonder, and commitment. It also means <strong style="color:var(--text);">challenging with care</strong> and ultimately <strong style="color:var(--text);">co-creating</strong> — restoring trust, revitalizing teams, and helping people return to a more connected, vital state.</p>
+
+        <h3 style="font-size:0.85rem;font-weight:700;color:var(--dark);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:1rem;">Why Work With Me?</h3>
+        <div>
+          <div class="why-item"><span class="why-dot">◆</span><p class="why-text"><strong>Real Experience.</strong> I've been a CEO (Kav Mashve, ~6 years), an entrepreneur (founded HUB Tel Aviv), and a consultant. I understand clients from the inside.</p></div>
+          <div class="why-item"><span class="why-dot">◆</span><p class="why-text"><strong>Deep Expertise.</strong> Consulting since 1993. When situations are complex, experience counts.</p></div>
+          <div class="why-item"><span class="why-dot">◆</span><p class="why-text"><strong>Innovation Focus.</strong> Always looking for breakthroughs and helping you find your uniqueness.</p></div>
+          <div class="why-item"><span class="why-dot">◆</span><p class="why-text"><strong>Cross-Cultural.</strong> Skilled at bridging people from different backgrounds, including conflict zones.</p></div>
+          <div class="why-item"><span class="why-dot">◆</span><p class="why-text"><strong>People-Centered.</strong> I love people. I'm not afraid of the drama and tension that come with real relationships.</p></div>
+        </div>
+        <p style="font-size:1rem;color:var(--gold);font-style:italic;margin-top:1.75rem;font-family:'Cormorant Garamond',serif;font-size:1.15rem;">I would love to get to know you and work with you.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ARTICLES & INSIGHTS -->
+<section class="section art-bg" id="articles">
+  <div class="si">
+    <span class="s-eye">Thought Leadership</span>
+    <h2 class="s-title">Articles &amp; Insights</h2>
+    <p class="s-sub" style="margin-bottom:3rem;">Over 20 years of writing on leadership, organizational development, and systems thinking</p>
+
+    <p class="art-section-title">Featured Insights</p>
+    <div class="art-featured" style="margin-bottom:3rem;">
+      <div class="art-card">
+        <span class="art-tag" style="background:#f3e8ff;color:#7c3aed;">Theory U</span>
+        <h4 class="art-h">Getting Access to Your Next Chapter in Life</h4>
+        <p class="art-p">Personal perspective on Theory U and how it helps individuals and organizations access deeper sources of knowing and innovation.</p>
+        <a href="https://www.dropbox.com/scl/fi/1g7kvkwgfqdb3ywbqplbx/theory-U-Danny-Gal-s-perspective-2022.pdf?rlkey=j4i24wu37s66d888rtsm5f1a0&st=dlcy0b92&dl=0" target="_blank" class="art-link">Read Article →</a>
+      </div>
+      <div class="art-card">
+        <span class="art-tag" style="background:#dcfce7;color:#15803d;">Professional Development</span>
+        <h4 class="art-h">Skills Required from Organizational Consultants</h4>
+        <p class="art-p">Written in 2001, exploring the thinking tools and capabilities needed by organizational consultants.</p>
+        <a href="https://www.dropbox.com/scl/fi/e0kowug37i567k2ekts26/2001.pdf?rlkey=fev7904m7mu9rrkxvvfly9u1r&st=c5498iqh&dl=0" target="_blank" class="art-link">Read Article →</a>
+      </div>
+      <div class="art-card">
+        <span class="art-tag" style="background:#dbeafe;color:#1d4ed8;">Organizational Consulting</span>
+        <h4 class="art-h">Evolution of Organizational Consulting</h4>
+        <p class="art-p">A 2005 reflection on different perspectives through which we can view the profession and my own development within it.</p>
+        <a href="https://www.dropbox.com/s/ln5r4x26fs4t392/%D7%9E%D7%A7%D7%A6%D7%95%D7%A2%20%D7%94%D7%99%D7%99%D7%A2%D7%95%D7%A5%20%D7%91%D7%94%D7%A9%D7%AA%D7%A0%D7%95%D7%AA%20(2).pdf?e=1&dl=0" target="_blank" class="art-link">Read Article →</a>
+      </div>
+      <div class="art-card">
+        <span class="art-tag" style="background:#ffedd5;color:#c2410c;">Systems Thinking</span>
+        <h4 class="art-h">Systems Thinking &amp; the Israeli-Palestinian Conflict</h4>
+        <p class="art-p">Written in 2004, applying systems thinking frameworks to understand complex conflicts and their dynamics.</p>
+        <a href="https://www.dropbox.com/scl/fi/c6jcs95tz43pyxjwgxgeg/1.doc?rlkey=caitdvjkehlr3mnnh8dlqys2m&st=bdaug7or&dl=0" target="_blank" class="art-link">Read Article →</a>
+      </div>
+      <div class="art-card">
+        <span class="art-tag" style="background:#ccfbf1;color:#0f766e;">Inner Work</span>
+        <h4 class="art-h">Diving into Our Inner State</h4>
+        <p class="art-p">Explaining the inner state concept from Theory U — a guide to accessing deeper levels of awareness in leadership and facilitation (2008).</p>
+        <a href="https://www.dropbox.com/scl/fi/zhtd55nr9jpp5sznm67n5/Diving-into-our-Inner-State_1.pdf?rlkey=fsfgoziawqaxu7dy70xxywz1s&st=syvj6ogg&dl=0" target="_blank" class="art-link">Read Article →</a>
+      </div>
+      <div class="art-card">
+        <span class="art-tag" style="background:#fce7f3;color:#be185d;">Knowledge Management</span>
+        <h4 class="art-h">Intra-Organizational Partnership</h4>
+        <p class="art-p">A new paradigm in internal organizational service — exploring how internal partnerships drive organizational effectiveness (2003).</p>
+        <a href="https://www.dropbox.com/scl/fi/3drsc9ok4yh5oyljun9fh/IOP-hebrew2.doc?rlkey=1k2cuidp5nm9hfi7aniwe4uok&st=1gntowhl&dl=0" target="_blank" class="art-link">Read Article →</a>
+      </div>
+    </div>
+
+    <p class="art-section-title">Globes Leadership Column</p>
+    <div class="globes-grid">
+      <div class="globes-card">
+        <h4 class="globes-h">Close Strategic Planning Departments</h4>
+        <p class="globes-p">Involvement, responsibility, and ongoing dialogue are the new strategy.</p>
+        <a href="https://www.globes.co.il/news/article.aspx?QUID=1055,U1255358088997&did=901011" target="_blank" class="art-link">Read on Globes →</a>
+      </div>
+      <div class="globes-card">
+        <h4 class="globes-h">The Sound of Internal Ringtone</h4>
+        <p class="globes-p">On overload, pressure, and creating work environments that serve people.</p>
+        <a href="https://www.globes.co.il/news/article.aspx?did=889638#FromSearchPage" target="_blank" class="art-link">Read on Globes →</a>
+      </div>
+      <div class="globes-card">
+        <h4 class="globes-h">How Leaders Are Made</h4>
+        <p class="globes-p">In Israel, a leader saves the situation — not one who prevented it.</p>
+        <a href="https://www.globes.co.il/news/article.aspx?did=837091#FromSearchPage" target="_blank" class="art-link">Read on Globes →</a>
+      </div>
+      <div class="globes-card">
+        <h4 class="globes-h">Managers Exist — But No Management</h4>
+        <p class="globes-p">When individual managers don't function productively as a team.</p>
+        <a href="https://www.globes.co.il/news/article.aspx?did=879333#FromSearchPage" target="_blank" class="art-link">Read on Globes →</a>
+      </div>
+      <div class="globes-card">
+        <h4 class="globes-h">The Manager Left, Long Live the New Manager</h4>
+        <p class="globes-p">Navigating leadership transitions and managing organizational change.</p>
+        <a href="https://www.globes.co.il/news/article.aspx?did=883945#FromSearchPage" target="_blank" class="art-link">Read on Globes →</a>
+      </div>
+      <div class="globes-card">
+        <h4 class="globes-h">Subversion is Good</h4>
+        <p class="globes-p">Presenting alternatives to authority contributes to democracy, not undermines it.</p>
+        <a href="https://www.globes.co.il/news/article.aspx?did=734293#FromSearchPage" target="_blank" class="art-link">Read on Globes →</a>
+      </div>
+    </div>
+
+    <p class="art-section-title">Additional Publications</p>
+    <div class="pub-list">
+      <div class="pub-item"><span style="color:var(--gold);flex-shrink:0;">◆</span><span><a href="https://www.dropbox.com/scl/fi/xb90e2x5aq2q5c8yvxkzi/Further-Thoughts-on-KM_4.doc?rlkey=wauub2sywmg4w2ppla9ke7v96&st=w7lz8bj8&dl=0" target="_blank"><strong>Further Thoughts on Knowledge Management</strong></a> (2003)</span></div>
+      <div class="pub-item"><span style="color:var(--gold);flex-shrink:0;">◆</span><span><strong>In Praise of Strategy</strong> — Why it's so hard for organizations to change (Status, 2003)</span></div>
+      <div class="pub-item"><span style="color:var(--gold);flex-shrink:0;">◆</span><span><strong>The Role of Knowledge Manager</strong> — HR Magazine (2001)</span></div>
+      <div class="pub-item"><span style="color:var(--gold);flex-shrink:0;">◆</span><span><a href="https://vimeo.com/173233552" target="_blank"><strong>School as Entrepreneur Incubator</strong></a> — "Avnei Rosh" project (Video)</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section contact-bg" id="contact">
+  <div class="si">
+    <div class="contact-center">
+      <span class="s-eye">Let's Talk</span>
+      <h2 class="s-title">Get in Touch</h2>
+      <p class="s-sub">Whether you're looking for executive coaching, a keynote speaker, or a long-term organizational partner — let's start a conversation.</p>
+      <div class="contact-grid">
+        <a href="mailto:dannygal05@gmail.com" class="cc"><div class="cc-icon">✉️</div><div class="cc-label">Email</div><div class="cc-val">dannygal05@gmail.com</div></a>
+        <a href="https://wa.me/972532319690" target="_blank" class="cc"><div class="cc-icon">💬</div><div class="cc-label">WhatsApp</div><div class="cc-val">+972 53-231-9690</div></a>
+        <a href="https://calendar.app.google/iCX4ETeuq4DjKJee6" target="_blank" class="cc"><div class="cc-icon">📅</div><div class="cc-label">Schedule a Call</div><div class="cc-val">Book a Meeting</div></a>
+        <a href="https://www.linkedin.com/in/dannygal1/" target="_blank" class="cc"><div class="cc-icon">💼</div><div class="cc-label">LinkedIn</div><div class="cc-val">Connect with Danny</div></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span>© 2025 Danny Gal &middot; Organizational Consultant &amp; Executive Coach</span>
+  <div class="f-links">
+    <a href="services.html">Services</a>
+    <a href="book-excerpt.html">Book</a>
+    <a href="booking.html">Speaking</a>
+    <a href="#articles">Articles</a>
+    <a href="mailto:dannygal05@gmail.com">Contact</a>
+  </div>
+</footer>
+
+</body>
+</html>

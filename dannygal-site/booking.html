@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Book a Talk or Workshop – Danny Gal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="_shared.css">
+  <style>
+    .service-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(290px,1fr)); gap: 1.5rem; }
+    .svc-card { border-radius: 1rem; overflow: hidden; border: 2px solid rgba(255,255,255,0.1); transition: border-color 0.2s, transform 0.2s; cursor: pointer; }
+    .svc-card:hover { transform: translateY(-4px); border-color: rgba(255,255,255,0.35); }
+    .svc-top { padding: 1.5rem; color: #fff; }
+    .svc-top h3 { font-size: 1.3rem; font-weight: 800; margin-bottom: 0.3rem; }
+    .svc-top .sub { font-size: 0.85rem; opacity: 0.85; }
+    .price-badge { background: rgba(255,255,255,0.2); border-radius: 0.5rem; padding: 0.25rem 0.75rem; font-size: 0.9rem; font-weight: 700; float: right; }
+    .svc-bottom { background: #fff; padding: 1.5rem; }
+    .svc-desc { color: #475569; font-size: 0.9rem; margin-bottom: 1.25rem; }
+    .feature-list { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 1.5rem; }
+    .feature-list li { display: flex; align-items: flex-start; gap: 0.5rem; font-size: 0.82rem; color: #475569; }
+    .check { color: #22c55e; font-size: 1rem; flex-shrink: 0; margin-top: 0.05rem; }
+    .svc-btn { display: block; width: 100%; padding: 0.65rem; border-radius: 0.5rem; border: none; cursor: pointer; font-weight: 700; font-size: 0.9rem; color: #fff; transition: opacity 0.2s; text-align: center; }
+    .svc-btn:hover { opacity: 0.88; }
+    .includes-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.12); border-radius: 1rem; padding: 2rem; }
+    .includes-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px,1fr)); gap: 1.5rem; margin-top: 1.25rem; }
+    .inc-item { display: flex; align-items: flex-start; gap: 0.6rem; }
+    .inc-dot { width: 6px; height: 6px; border-radius: 50%; background: #22d3ee; flex-shrink: 0; margin-top: 0.5rem; }
+    .inc-item span { color: #94a3b8; font-size: 0.875rem; }
+  </style>
+</head>
+<body style="background:linear-gradient(180deg,#0f172a 0%,#1e3a8a 50%,#0f172a 100%);">
+<header>
+  <div class="header-inner">
+    <a href="index.html" class="header-logo">Danny Gal</a>
+    <span style="font-weight:600;color:#fff;font-size:0.9rem;">Book a Talk or Workshop</span>
+    <a href="index.html" class="btn-ghost">← Home</a>
+  </div>
+</header>
+
+<section class="hero-section" style="text-align:center;">
+  <div class="max-w-5xl px-6">
+    <span class="badge" style="background:rgba(6,182,212,0.15);color:#67e8f9;border-color:rgba(6,182,212,0.3)">Speaking & Workshop Services</span>
+    <h1>Bring "The Belonging Paradox"<br>to Your Organization</h1>
+    <p style="color:#94a3b8;font-size:1.1rem;max-width:40rem;margin:0 auto;">Choose from keynote speeches, half-day workshops, or full-day immersive experiences to transform your team's understanding of belonging, diversity, and inclusion.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="max-w-7xl px-6">
+    <div class="service-cards">
+
+      <div class="svc-card">
+        <div class="svc-top" style="background:linear-gradient(135deg,#3b82f6,#06b6d4)">
+          <span class="price-badge">£5,000</span>
+          <div style="width:3rem;height:3rem;border-radius:0.75rem;background:rgba(255,255,255,0.2);display:flex;align-items:center;justify-content:center;font-size:1.3rem;margin-bottom:0.75rem;">🎯</div>
+          <h3>Keynote Speech</h3>
+          <div class="sub">60 min + Q&A</div>
+        </div>
+        <div class="svc-bottom">
+          <p class="svc-desc">Engaging, customisable keynote with 60 minutes of content plus Q&A</p>
+          <ul class="feature-list">
+            <li><span class="check">✓</span> Customizable to your event theme</li>
+            <li><span class="check">✓</span> Based on The Belonging Paradox insights</li>
+            <li><span class="check">✓</span> Interactive Q&A session</li>
+            <li><span class="check">✓</span> Perfect for conferences and large gatherings</li>
+          </ul>
+          <a href="mailto:dannygal05@gmail.com?subject=Booking%20Inquiry%3A%20Keynote%20Speech&body=Hi%20Danny%2C%0A%0AI'm%20interested%20in%20booking%20your%20Keynote%20Speech%20for%20our%20organization.%0A%0APlease%20let%20me%20know%20your%20availability%20and%20next%20steps.%0A%0ABest%20regards%2C" class="svc-btn" style="background:linear-gradient(135deg,#3b82f6,#06b6d4)">✉️ Request Booking</a>
+        </div>
+      </div>
+
+      <div class="svc-card">
+        <div class="svc-top" style="background:linear-gradient(135deg,#a855f7,#ec4899)">
+          <span class="price-badge">£8,000</span>
+          <div style="width:3rem;height:3rem;border-radius:0.75rem;background:rgba(255,255,255,0.2);display:flex;align-items:center;justify-content:font-size:1.3rem;margin-bottom:0.75rem;display:flex;align-items:center;justify-content:center;font-size:1.3rem;margin-bottom:0.75rem;">👥</div>
+          <h3>Half-Day Workshop</h3>
+          <div class="sub">Listening & Communication</div>
+        </div>
+        <div class="svc-bottom">
+          <p class="svc-desc">Interactive 3-4 hour session developing listening skills through exercises and group discussion</p>
+          <ul class="feature-list">
+            <li><span class="check">✓</span> 3-4 hours of interactive learning</li>
+            <li><span class="check">✓</span> Practical exercises and activities</li>
+            <li><span class="check">✓</span> Group discussions and reflection</li>
+            <li><span class="check">✓</span> Applicable tools for immediate use</li>
+          </ul>
+          <a href="mailto:dannygal05@gmail.com?subject=Booking%20Inquiry%3A%20Half-Day%20Workshop&body=Hi%20Danny%2C%0A%0AI'm%20interested%20in%20booking%20your%20Half-Day%20Workshop%20for%20our%20organization.%0A%0APlease%20let%20me%20know%20your%20availability%20and%20next%20steps.%0A%0ABest%20regards%2C" class="svc-btn" style="background:linear-gradient(135deg,#a855f7,#ec4899)">✉️ Request Booking</a>
+        </div>
+      </div>
+
+      <div class="svc-card">
+        <div class="svc-top" style="background:linear-gradient(135deg,#f97316,#ef4444)">
+          <span class="price-badge">£12,000</span>
+          <div style="width:3rem;height:3rem;border-radius:0.75rem;background:rgba(255,255,255,0.2);display:flex;align-items:center;justify-content:center;font-size:1.3rem;margin-bottom:0.75rem;">⏱️</div>
+          <h3>Full-Day Workshop</h3>
+          <div class="sub">Team Development & Organizational Culture</div>
+        </div>
+        <div class="svc-bottom">
+          <p class="svc-desc">Full-day experiential session exploring personal story to strengthen culture and collaboration</p>
+          <ul class="feature-list">
+            <li><span class="check">✓</span> Full day of deep engagement</li>
+            <li><span class="check">✓</span> Personal story exploration</li>
+            <li><span class="check">✓</span> Team dynamics and culture building</li>
+            <li><span class="check">✓</span> Long-term impact strategies</li>
+            <li><span class="check">✓</span> Tailored to your organization's needs</li>
+          </ul>
+          <a href="mailto:dannygal05@gmail.com?subject=Booking%20Inquiry%3A%20Full-Day%20Workshop&body=Hi%20Danny%2C%0A%0AI'm%20interested%20in%20booking%20your%20Full-Day%20Workshop%20for%20our%20organization.%0A%0APlease%20let%20me%20know%20your%20availability%20and%20next%20steps.%0A%0ABest%20regards%2C" class="svc-btn" style="background:linear-gradient(135deg,#f97316,#ef4444)">✉️ Request Booking</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0;">
+  <div class="max-w-5xl px-6">
+    <div class="includes-card">
+      <h3 style="font-size:1.3rem;font-weight:800;margin-bottom:0.25rem;">What's Included</h3>
+      <p style="color:#94a3b8;font-size:0.9rem;">All prices are excl. VAT. Travel and accommodation costs may apply for events outside Israel.</p>
+      <div class="includes-grid">
+        <div class="inc-item"><div class="inc-dot"></div><span>Pre-event consultation call</span></div>
+        <div class="inc-item"><div class="inc-dot"></div><span>Customized content for your audience</span></div>
+        <div class="inc-item"><div class="inc-dot"></div><span>Follow-up resources and materials</span></div>
+        <div class="inc-item"><div class="inc-dot"></div><span>Post-event debrief session</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer><p>© 2025 Danny Gal · <a href="mailto:dannygal05@gmail.com" style="color:#64748b">dannygal05@gmail.com</a></p></footer>
+</body>
+</html>
