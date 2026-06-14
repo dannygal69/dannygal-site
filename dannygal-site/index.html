@@ -122,8 +122,9 @@
     .bf-cta { font-size: 0.68rem; font-weight: 700; color: var(--gold); text-transform: uppercase; letter-spacing: 0.06em; margin-top: 0.2rem; display: block; }
 
     /* ── SCHARMER PULL QUOTE ── */
-    .pull-quote-wrap { background: var(--dark); padding: 3rem 2.5rem; }
-    .pull-quote { max-width: 860px; margin: 0 auto; text-align: center; }
+    .pull-quote-wrap { background: var(--dark); padding: 3rem 2.5rem; display: grid; grid-template-columns: 1fr 1fr; }
+    .pull-quote { max-width: none; margin: 0; text-align: center; grid-column: 1; }
+    @media (max-width: 860px) { .pull-quote-wrap { grid-template-columns: 1fr; } }
     .pull-quote-mark { font-family: 'Cormorant Garamond', serif; font-size: 4rem; line-height: 0.5; color: var(--gold); display: block; margin-bottom: 1rem; }
     .pull-quote p { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.2rem, 2.5vw, 1.6rem); font-style: italic; color: #dde2ec; line-height: 1.7; margin-bottom: 1.25rem; }
     .pull-quote-attr { font-size: 0.78rem; font-weight: 600; letter-spacing: 0.08em; color: var(--gold-lt); text-transform: uppercase; }
