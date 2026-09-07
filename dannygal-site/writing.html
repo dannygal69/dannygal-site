@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Writing - Danny Gal</title>
+  <meta name="description" content="Twenty years of writing on leadership, organizational development and systems thinking, by Danny Gal."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:#f5f3ef; --bg2:#edeae4; --dark:#12192a; --dark2:#1a2438;
+      --border:rgba(18,25,42,0.1); --gold:#b8872a; --gold-lt:#d4a84b;
+      --gold-dim:rgba(184,135,42,0.12); --text:#2c3548; --muted:#6b7690; --white:#ffffff;
+    }
+    *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+    html { scroll-behavior:smooth; }
+    body { font-family:'Outfit',sans-serif; background:var(--bg); color:var(--text); line-height:1.65; overflow-x:hidden; }
+
+    header { position:fixed; top:0; left:0; right:0; z-index:200; height:62px; display:flex; align-items:center; justify-content:space-between; padding:0 2.5rem; background:rgba(245,243,239,0.95); backdrop-filter:blur(20px); border-bottom:1px solid var(--border); }
+    .logo { font-family:'Cormorant Garamond',serif; font-size:1.4rem; font-weight:600; letter-spacing:0.05em; color:var(--dark); text-decoration:none; }
+    .logo em { font-style:normal; color:var(--gold); }
+    nav { display:flex; align-items:center; gap:0.25rem; }
+    .nav-link { color:var(--muted); text-decoration:none; font-size:0.8rem; font-weight:500; letter-spacing:0.04em; padding:0.4rem 0.8rem; border-radius:0.3rem; transition:color 0.2s; }
+    .nav-link:hover { color:var(--dark); }
+    .nav-link.here { color:var(--dark); font-weight:700; }
+    .btn-cta { margin-left:0.75rem; background:var(--dark); color:#fff; font-weight:700; font-size:0.8rem; letter-spacing:0.04em; padding:0.5rem 1.2rem; border-radius:0.3rem; text-decoration:none; transition:background 0.2s; }
+    .btn-cta:hover { background:var(--dark2); }
+    .nav-toggle { display:none; background:none; border:none; cursor:pointer; padding:0.4rem 0.5rem; color:var(--dark); font-size:1.3rem; line-height:1; margin-left:0.25rem; }
+    @media (max-width:700px) { nav .nav-link { display:none; } .nav-toggle { display:flex; align-items:center; } }
+    .mobile-nav { display:none; position:fixed; top:62px; left:0; right:0; z-index:197; background:rgba(245,243,239,0.98); backdrop-filter:blur(20px); border-bottom:2px solid var(--border); padding:0.5rem 1.5rem 1rem; flex-direction:column; box-shadow:0 8px 24px rgba(18,25,42,0.1); }
+    .mobile-nav.open { display:flex; }
+    .mobile-nav a.nav-link { display:block; padding:0.85rem 0.25rem; font-size:0.92rem; color:var(--text); border-bottom:1px solid var(--border); }
+    .mobile-nav a.btn-cta { margin:0.75rem 0 0; display:block; text-align:center; font-size:0.9rem; padding:0.75rem; }
+    .spacer { height:62px; }
+
+    .page-head { background:var(--white); border-bottom:1px solid var(--border); padding:4rem 2.5rem 3.25rem; }
+    @media (max-width:700px) { .page-head { padding:2.75rem 1.5rem 2.25rem; } }
+    .page-head-in { max-width:1200px; margin:0 auto; }
+    .gold-bar { width:2.5rem; height:2px; background:var(--gold); margin-bottom:1.5rem; }
+    .page-eye { font-size:0.7rem; font-weight:600; letter-spacing:0.16em; color:var(--gold); text-transform:uppercase; margin-bottom:1rem; }
+    .page-h1 { font-family:'Cormorant Garamond',serif; font-size:clamp(2.2rem,4.5vw,3.4rem); font-weight:300; line-height:1.12; color:var(--dark); margin-bottom:1rem; text-wrap:balance; }
+    .page-sub { font-size:0.95rem; color:var(--muted); line-height:1.8; max-width:44rem; }
+
+    .section { padding:4.5rem 2.5rem; }
+    @media (max-width:700px) { .section { padding:3rem 1.5rem; } }
+    .si { max-width:1200px; margin:0 auto; }
+    .art-bg { background:var(--bg2); }
+    .art-featured { display:grid; grid-template-columns:repeat(2,1fr); gap:1.25rem; margin-bottom:3rem; }
+    @media (max-width:700px) { .art-featured { grid-template-columns:1fr; } }
+    .art-card { background:var(--white); border:1px solid var(--border); border-radius:0.75rem; padding:1.5rem; box-shadow:0 2px 8px rgba(18,25,42,0.04); }
+    .art-tag { display:inline-block; border-radius:9999px; padding:0.2rem 0.7rem; font-size:0.68rem; font-weight:600; letter-spacing:0.05em; margin-bottom:0.875rem; }
+    .art-h { font-size:0.92rem; font-weight:700; color:var(--dark); margin-bottom:0.5rem; line-height:1.4; }
+    .art-p { font-size:0.8rem; color:var(--muted); line-height:1.65; margin-bottom:1rem; }
+    .art-link { color:var(--gold); font-size:0.78rem; font-weight:600; text-decoration:none; border-bottom:1px solid rgba(184,135,42,0.3); }
+    .art-link:hover { border-color:var(--gold); }
+    .art-section-title { font-size:0.85rem; font-weight:700; color:var(--dark); letter-spacing:0.06em; text-transform:uppercase; margin-bottom:1.25rem; padding-bottom:0.65rem; border-bottom:2px solid var(--gold-dim); }
+    .globes-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; margin-bottom:3rem; }
+    @media (max-width:700px) { .globes-grid { grid-template-columns:1fr 1fr; } }
+    @media (max-width:480px) { .globes-grid { grid-template-columns:1fr; } }
+    .globes-card { background:var(--white); border:1px solid var(--border); border-radius:0.65rem; padding:1.1rem 1.25rem; }
+    .globes-h { font-size:0.82rem; font-weight:700; color:var(--dark); margin-bottom:0.3rem; line-height:1.4; }
+    .globes-p { font-size:0.75rem; color:var(--muted); margin-bottom:0.6rem; line-height:1.5; }
+    .pub-list { background:var(--white); border:1px solid var(--border); border-radius:0.75rem; padding:1.75rem; display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
+    @media (max-width:640px) { .pub-list { grid-template-columns:1fr; } }
+    .pub-item { display:flex; gap:0.6rem; align-items:flex-start; font-size:0.82rem; color:var(--muted); line-height:1.6; }
+    .pub-item a { color:var(--text); text-decoration:none; }
+    .pub-item a:hover { color:var(--gold); }
+
+    footer { border-top:1px solid rgba(255,255,255,0.08); padding:1.75rem 2.5rem; background:var(--dark); display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem; font-size:0.75rem; color:#4a5568; }
+    footer a { color:#4a5568; text-decoration:none; }
+    footer a:hover { color:var(--gold-lt); }
+    .f-links { display:flex; gap:1.5rem; flex-wrap:wrap; }
+    a:focus-visible, button:focus-visible { outline:2px solid var(--gold); outline-offset:3px; }
+  </style>
+</head>
+<body>
+
+<header>
+  <a href="index.html" class="logo">Danny <em>Gal</em></a>
+  <nav>
+    <a href="index.html#about" class="nav-link">About</a>
+    <a href="services.html" class="nav-link">Services</a>
+    <a href="booking.html" class="nav-link">Speaking</a>
+    <a href="book-excerpt.html" class="nav-link">The Book</a>
+    <a href="writing.html" class="nav-link here">Writing</a>
+    <a href="https://ipartner.dannygal.com/index-en.html" target="_blank" class="btn-cta">Ask Saul &rarr;</a>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Open navigation">&#9776;</button>
+  </nav>
+</header>
+
+<div class="mobile-nav" id="mobile-nav">
+  <a href="index.html#about" class="nav-link">About</a>
+  <a href="services.html" class="nav-link">Services</a>
+  <a href="booking.html" class="nav-link">Speaking</a>
+  <a href="book-excerpt.html" class="nav-link">The Book</a>
+  <a href="writing.html" class="nav-link here">Writing</a>
+  <a href="https://ipartner.dannygal.com/index-en.html" target="_blank" class="btn-cta">Ask Saul &rarr;</a>
+</div>
+
+<div class="spacer"></div>
+
+<div class="page-head">
+  <div class="page-head-in">
+    <div class="gold-bar"></div>
+    <p class="page-eye">Thought Leadership</p>
+    <h1 class="page-h1">Writing</h1>
+    <p class="page-sub">Over twenty years of writing on leadership, organizational development and systems thinking &mdash; from the Globes leadership column to Theory U, knowledge management, and the Israeli&ndash;Palestinian conflict.</p>
+  </div>
+</div>
+
+<section class="section art-bg">
+  <div class="si">
+
+    <p class="art-section-title">Featured Insights</p>
+    <div class="art-featured" style="margin-bottom:3rem;">
+      <div class="art-card" style="border-left:3px solid #0ea5e9; background:linear-gradient(135deg,#f0f9ff,#fff); grid-column: 1 / -1;">
+        <span class="art-tag" style="background:#e0f2fe;color:#0369a1;">🎙️ Featured Podcast · The Connected Leadership</span>
+        <h4 class="art-h" style="font-size:1.05rem;">Leadership Lessons from the Frontlines of Conflict</h4>
+        <p class="art-p">Danny Gal joins host Andy Lopata to explore how lessons from the Israeli-Palestinian conflict can transform modern leadership — covering empathy, belonging, constructive feedback, and building trust across deep divisions.</p>
+        <a href="https://podfollow.com/connectedleadership/episode/ee0bfd921915ebc1f3ae67468562147f8e0cb0c6/view" target="_blank" class="art-link">Listen to the Episode →</a>
+      </div>
+      <div class="art-card" style="border-left:3px solid #b45309;">
+        <span class="art-tag" style="background:#fef3c7;color:#b45309;">World Cafe Magazine</span>
+        <h4 class="art-h">1,000 Round Tables — Danny Gal's Project</h4>
+        <p class="art-p">Featured in The World Cafe — Danny Gal's ambitious 1,000 Round Tables project, bringing people together through dialogue, connection, and collective wisdom.</p>
+        <a href="https://theworldcafe.com/1000-round-tables/" target="_blank" class="art-link">Read the Feature →</a>
+      </div>
+      <div class="art-card" style="border-left:3px solid var(--gold);">
+        <span class="art-tag" style="background:var(--gold-dim);color:var(--gold);">🏆 Award Feature</span>
+        <h4 class="art-h">The Belonging Paradox — Institute Book of the Year Runner-Up</h4>
+        <p class="art-p">An interview with Danny Gal on winning Runner-Up for the Institute of Leadership's Book of the Year 2025, and what The Belonging Paradox means for leaders today.</p>
+        <a href="https://ioledge.com/community/the-belonging-paradox-institute-book-of-the-year-runner-up/" target="_blank" class="art-link">Read on IoL Edge →</a>
+      </div>
+      <div class="art-card" style="border-left:3px solid #0f766e;">
+        <span class="art-tag" style="background:#ccfbf1;color:#0f766e;">Edge Magazine · Institute of Leadership</span>
+        <h4 class="art-h">Books Keeping Leaders Awake at Night</h4>
+        <p class="art-p">Edge Magazine — the Institute of Leadership's publication — features The Belonging Paradox in its roundup of essential reads for leaders and managers.</p>
+        <a href="edge-magazine-book-review.pdf" target="_blank" class="art-link">Read the Review →</a>
+      </div>
+      <div class="art-card" style="border-left:3px solid #1d4ed8;">
+        <span class="art-tag" style="background:#dbeafe;color:#1d4ed8;">Duke Corporate Education</span>
+        <h4 class="art-h">The Belonging Paradox</h4>
+        <p class="art-p">In the midst of a global empathy crisis, leaders must balance inclusion and individuality. Danny Gal explores how belonging can transform leadership and culture.</p>
+        <a href="https://www.dukece.com/insights/the-belonging-paradox/" target="_blank" class="art-link">Read on Duke CE →</a>
+      </div>
+      <div class="art-card" style="border-left:3px solid #15803d;">
+        <span class="art-tag" style="background:#dcfce7;color:#15803d;">People Managing People</span>
+        <h4 class="art-h">The Belonging Paradox: A Case for Vulnerable Leadership</h4>
+        <p class="art-p">How vulnerability and authentic connection are the missing ingredients in modern leadership — and why belonging is the key to organisational success.</p>
+        <a href="https://peoplemanagingpeople.com/career/the-belonging-paradox/" target="_blank" class="art-link">Read on People Managing People →</a>
+      </div>
+      <div class="art-card" style="border-left:3px solid #7c3aed; background:linear-gradient(135deg,#faf5ff,#fff);">
+        <span class="art-tag" style="background:#f3e8ff;color:#7c3aed;">🎙️ Podcast</span>
+        <h4 class="art-h">The Belonging Paradox with Danny Gal</h4>
+        <p class="art-p">Listen to the podcast episode published by LID Publishing — Danny Gal in conversation about the book, the empathy crisis, and what belonging really means for leaders.</p>
+        <a href="https://podcasts.apple.com/us/podcast/the-belonging-paradox-with-danny-gal/id1123599693?i=1000712405600" target="_blank" class="art-link">Listen on Apple Podcasts →</a>
+      </div>
+      <div class="art-card" style="border-left:3px solid #dc2626; background:linear-gradient(135deg,#fff5f5,#fff);">
+        <span class="art-tag" style="background:#fee2e2;color:#dc2626;">▶️ Podcast · Hebrew</span>
+        <h4 class="art-h">Unfounded — Danny Gal on The Belonging Paradox</h4>
+        <p class="art-p">A Hebrew-language podcast conversation with Danny Gal about the book, belonging, and the empathy crisis in leadership and society.</p>
+        <a href="https://www.youtube.com/watch?v=-8InFEjDO48" target="_blank" class="art-link">Watch on YouTube →</a>
+      </div>
+      <div class="art-card">
+        <span class="art-tag" style="background:#f3e8ff;color:#7c3aed;">Theory U</span>
+        <h4 class="art-h">Getting Access to Your Next Chapter in Life</h4>
+        <p class="art-p">Personal perspective on Theory U and how it helps individuals and organizations access deeper sources of knowing and innovation.</p>
+        <a href="https://www.dropbox.com/scl/fi/1g7kvkwgfqdb3ywbqplbx/theory-U-Danny-Gal-s-perspective-2022.pdf?rlkey=j4i24wu37s66d888rtsm5f1a0&st=dlcy0b92&dl=0" target="_blank" class="art-link">Read Article →</a>
+      </div>
+      <div class="art-card">
+        <span class="art-tag" style="background:#dcfce7;color:#15803d;">Professional Development</span>
+        <h4 class="art-h">Skills Required from Organizational Consultants</h4>
+        <p class="art-p">Written in 2001, exploring the thinking tools and capabilities needed by organizational consultants.</p>
+        <a href="https://www.dropbox.com/scl/fi/e0kowug37i567k2ekts26/2001.pdf?rlkey=fev7904m7mu9rrkxvvfly9u1r&st=c5498iqh&dl=0" target="_blank" class="art-link">Read Article →</a>
+      </div>
+      <div class="art-card">
+        <span class="art-tag" style="background:#dbeafe;color:#1d4ed8;">Organizational Consulting</span>
+        <h4 class="art-h">Evolution of Organizational Consulting</h4>
+        <p class="art-p">A 2005 reflection on different perspectives through which we can view the profession and my own development within it.</p>
+        <a href="https://www.dropbox.com/s/ln5r4x26fs4t392/%D7%9E%D7%A7%D7%A6%D7%95%D7%A2%20%D7%94%D7%99%D7%99%D7%A2%D7%95%D7%A5%20%D7%91%D7%94%D7%A9%D7%AA%D7%A0%D7%95%D7%AA%20(2).pdf?e=1&dl=0" target="_blank" class="art-link">Read Article →</a>
+      </div>
+      <div class="art-card">
+        <span class="art-tag" style="background:#ffedd5;color:#c2410c;">Systems Thinking</span>
+        <h4 class="art-h">Systems Thinking &amp; the Israeli-Palestinian Conflict</h4>
+        <p class="art-p">Written in 2004, applying systems thinking frameworks to understand complex conflicts and their dynamics.</p>
+        <a href="https://www.dropbox.com/scl/fi/c6jcs95tz43pyxjwgxgeg/1.doc?rlkey=caitdvjkehlr3mnnh8dlqys2m&st=bdaug7or&dl=0" target="_blank" class="art-link">Read Article →</a>
+      </div>
+      <div class="art-card">
+        <span class="art-tag" style="background:#ccfbf1;color:#0f766e;">Inner Work</span>
+        <h4 class="art-h">Diving into Our Inner State</h4>
+        <p class="art-p">Explaining the inner state concept from Theory U — a guide to accessing deeper levels of awareness in leadership and facilitation (2008).</p>
+        <a href="https://www.dropbox.com/scl/fi/zhtd55nr9jpp5sznm67n5/Diving-into-our-Inner-State_1.pdf?rlkey=fsfgoziawqaxu7dy70xxywz1s&st=syvj6ogg&dl=0" target="_blank" class="art-link">Read Article →</a>
+      </div>
+      <div class="art-card">
+        <span class="art-tag" style="background:#fce7f3;color:#be185d;">Knowledge Management</span>
+        <h4 class="art-h">Intra-Organizational Partnership</h4>
+        <p class="art-p">A new paradigm in internal organizational service — exploring how internal partnerships drive organizational effectiveness (2003).</p>
+        <a href="https://www.dropbox.com/scl/fi/3drsc9ok4yh5oyljun9fh/IOP-hebrew2.doc?rlkey=1k2cuidp5nm9hfi7aniwe4uok&st=1gntowhl&dl=0" target="_blank" class="art-link">Read Article →</a>
+      </div>
+    </div>
+
+    <p class="art-section-title">Globes Leadership Column</p>
+    <div class="globes-grid">
+      <div class="globes-card">
+        <h4 class="globes-h">Close Strategic Planning Departments</h4>
+        <p class="globes-p">Involvement, responsibility, and ongoing dialogue are the new strategy.</p>
+        <a href="https://www.globes.co.il/news/article.aspx?QUID=1055,U1255358088997&did=901011" target="_blank" class="art-link">Read on Globes →</a>
+      </div>
+      <div class="globes-card">
+        <h4 class="globes-h">The Sound of Internal Ringtone</h4>
+        <p class="globes-p">On overload, pressure, and creating work environments that serve people.</p>
+        <a href="https://www.globes.co.il/news/article.aspx?did=889638#FromSearchPage" target="_blank" class="art-link">Read on Globes →</a>
+      </div>
+      <div class="globes-card">
+        <h4 class="globes-h">How Leaders Are Made</h4>
+        <p class="globes-p">In Israel, a leader saves the situation — not one who prevented it.</p>
+        <a href="https://www.globes.co.il/news/article.aspx?did=837091#FromSearchPage" target="_blank" class="art-link">Read on Globes →</a>
+      </div>
+      <div class="globes-card">
+        <h4 class="globes-h">Managers Exist — But No Management</h4>
+        <p class="globes-p">When individual managers don't function productively as a team.</p>
+        <a href="https://www.globes.co.il/news/article.aspx?did=879333#FromSearchPage" target="_blank" class="art-link">Read on Globes →</a>
+      </div>
+      <div class="globes-card">
+        <h4 class="globes-h">The Manager Left, Long Live the New Manager</h4>
+        <p class="globes-p">Navigating leadership transitions and managing organizational change.</p>
+        <a href="https://www.globes.co.il/news/article.aspx?did=883945#FromSearchPage" target="_blank" class="art-link">Read on Globes →</a>
+      </div>
+      <div class="globes-card">
+        <h4 class="globes-h">Subversion is Good</h4>
+        <p class="globes-p">Presenting alternatives to authority contributes to democracy, not undermines it.</p>
+        <a href="https://www.globes.co.il/news/article.aspx?did=734293#FromSearchPage" target="_blank" class="art-link">Read on Globes →</a>
+      </div>
+    </div>
+
+    <p class="art-section-title">Additional Publications</p>
+    <div class="pub-list">
+      <div class="pub-item"><span style="color:var(--gold);flex-shrink:0;">◆</span><span><a href="https://www.dropbox.com/scl/fi/xb90e2x5aq2q5c8yvxkzi/Further-Thoughts-on-KM_4.doc?rlkey=wauub2sywmg4w2ppla9ke7v96&st=w7lz8bj8&dl=0" target="_blank"><strong>Further Thoughts on Knowledge Management</strong></a> (2003)</span></div>
+      <div class="pub-item"><span style="color:var(--gold);flex-shrink:0;">◆</span><span><strong>In Praise of Strategy</strong> — Why it's so hard for organizations to change (Status, 2003)</span></div>
+      <div class="pub-item"><span style="color:var(--gold);flex-shrink:0;">◆</span><span><strong>The Role of Knowledge Manager</strong> — HR Magazine (2001)</span></div>
+      <div class="pub-item"><span style="color:var(--gold);flex-shrink:0;">◆</span><span><a href="https://vimeo.com/173233552" target="_blank"><strong>School as Entrepreneur Incubator</strong></a> — "Avnei Rosh" project (Video)</span></div>
+    </div>
+  </div>
+</section>
+<footer>
+  <span>&copy; 2025 Danny Gal &middot; Organizational Consultant &amp; Executive Coach</span>
+  <div class="f-links">
+    <a href="services.html">Services</a>
+    <a href="booking.html">Speaking</a>
+    <a href="book-excerpt.html">The Book</a>
+    <a href="writing.html">Writing</a>
+    <a href="index.html#contact">Contact</a>
+  </div>
+</footer>
+
+<script>
+  const navToggle = document.getElementById('nav-toggle');
+  const mobileNav = document.getElementById('mobile-nav');
+  navToggle.addEventListener('click', () => {
+    const open = mobileNav.classList.toggle('open');
+    navToggle.innerHTML = open ? '&#10005;' : '&#9776;';
+  });
+</script>
+</body>
+</html>
