@@ -74,10 +74,10 @@
     /* ── HERO ── */
     .hero {
       display: grid; grid-template-columns: 1fr 1fr;
-      max-height: 700px; min-height: 580px;
+      min-height: 580px;
       border-bottom: 1px solid var(--border);
     }
-    @media (max-width: 860px) { .hero { grid-template-columns: 1fr; max-height: none; min-height: unset; } }
+    @media (max-width: 860px) { .hero { grid-template-columns: 1fr; min-height: unset; } }
 
     .hero-text {
       display: flex; flex-direction: column; justify-content: center;
