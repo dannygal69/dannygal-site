@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Ask Saul — A Private AI Partner for Leaders · Danny Gal</title>
+  <title>Danny Gal — Organizational Consultant, Author, Founder of Ask Saul</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
@@ -70,27 +70,21 @@
     /* ── SPACER (clears the fixed header only) ── */
     .spacer { height: 62px; }
 
-    /* ── TWO PATHS ── */
-    .paths-bg { background: var(--bg2); }
-    .paths-head { margin-bottom: 2.75rem; }
-    .paths-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
-    @media (max-width: 820px) { .paths-grid { grid-template-columns: 1fr; } }
-    .path {
-      background: var(--white); border: 1px solid var(--border);
-      border-top: 3px solid var(--gold); border-radius: 0.75rem;
-      padding: 2rem 1.9rem; text-decoration: none;
-      display: flex; flex-direction: column; gap: 0.65rem;
-      box-shadow: 0 2px 12px rgba(18,25,42,0.05);
-      transition: transform 0.2s, box-shadow 0.2s;
+    /* ── ASK SAUL — handoff block ── */
+    .section.saul-bg { background: var(--bg2); padding-top: 3.75rem; padding-bottom: 3.75rem; }
+    .saul-block { display: grid; grid-template-columns: 1.15fr 1fr; gap: 3.5rem; align-items: center; }
+    @media (max-width: 860px) { .saul-block { grid-template-columns: 1fr; gap: 2.25rem; } }
+    .saul-t { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.9rem,3.4vw,2.5rem); font-weight: 300; color: var(--dark); line-height: 1.15; margin-bottom: 0.8rem; }
+    .saul-d { font-size: 0.9rem; color: var(--muted); line-height: 1.8; }
+    .saul-links { display: flex; flex-direction: column; gap: 0.75rem; }
+    .saul-link {
+      display: block; background: var(--white); border: 1px solid var(--border);
+      border-radius: 0.6rem; padding: 1.1rem 1.3rem; text-decoration: none;
+      transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
     }
-    .path:hover { transform: translateY(-3px); box-shadow: 0 14px 36px rgba(18,25,42,0.11); }
-    .path.org { border-top-color: var(--dark); }
-    .path-label { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); }
-    .path.org .path-label { color: var(--dark); }
-    .path-t { font-family: 'Cormorant Garamond', serif; font-size: 1.55rem; font-weight: 400; color: var(--dark); line-height: 1.25; margin: 0; }
-    .path-d { font-size: 0.87rem; color: var(--muted); line-height: 1.75; flex: 1; }
-    .path-cta { font-size: 0.8rem; font-weight: 700; color: var(--dark); letter-spacing: 0.03em; margin-top: 0.5rem; transition: color 0.2s; }
-    .path:hover .path-cta { color: var(--gold); }
+    .saul-link:hover { border-color: var(--gold); transform: translateY(-2px); box-shadow: 0 10px 26px rgba(18,25,42,0.09); }
+    .saul-link strong { display: block; font-size: 0.9rem; font-weight: 700; color: var(--dark); margin-bottom: 0.2rem; }
+    .saul-link span { font-size: 0.78rem; color: var(--muted); line-height: 1.5; }
 
     /* ── HERO ── */
     .hero {
@@ -326,24 +320,24 @@
 <header>
   <a href="index.html" class="logo">Danny <em>Gal</em></a>
   <nav>
-    <a href="#saul" class="nav-link">How It Works</a>
-    <a href="https://ipartner.dannygal.com/in-a-nutshell/" target="_blank" class="nav-link">For Organizations</a>
-    <a href="book-excerpt.html" class="nav-link">The Book</a>
     <a href="#about" class="nav-link">About</a>
+    <a href="services.html" class="nav-link">Services</a>
+    <a href="booking.html" class="nav-link">Speaking</a>
+    <a href="book-excerpt.html" class="nav-link">The Book</a>
     <a href="#articles" class="nav-link">Writing</a>
-    <a href="https://ipartner.dannygal.com/index-en.html" target="_blank" class="btn-cta">Ask Saul</a>
+    <a href="https://ipartner.dannygal.com/index-en.html" target="_blank" class="btn-cta">Ask Saul →</a>
     <button class="nav-toggle" id="nav-toggle" aria-label="Open navigation">&#9776;</button>
   </nav>
 </header>
 
 <!-- MOBILE NAV -->
 <div class="mobile-nav" id="mobile-nav">
-  <a href="#saul" class="nav-link" onclick="closeMobileNav()">How It Works</a>
-  <a href="https://ipartner.dannygal.com/in-a-nutshell/" target="_blank" class="nav-link">For Organizations</a>
-  <a href="book-excerpt.html" class="nav-link">The Book</a>
   <a href="#about" class="nav-link" onclick="closeMobileNav()">About</a>
+  <a href="services.html" class="nav-link">Services</a>
+  <a href="booking.html" class="nav-link">Speaking</a>
+  <a href="book-excerpt.html" class="nav-link">The Book</a>
   <a href="#articles" class="nav-link" onclick="closeMobileNav()">Writing</a>
-  <a href="https://ipartner.dannygal.com/index-en.html" target="_blank" class="btn-cta">Ask Saul</a>
+  <a href="https://ipartner.dannygal.com/index-en.html" target="_blank" class="btn-cta">Ask Saul →</a>
 </div>
 
 <div class="spacer"></div>
@@ -352,9 +346,9 @@
 <section class="hero">
   <div class="hero-text">
     <div class="gold-bar fade d1"></div>
-    <p class="eyebrow fade d1">Ask Saul &middot; A Private AI Partner for Leaders</p>
-    <h1 class="hero-h1 fade d2">Every chatbot<br>knows the world.<br><em>Saul knows you.</em></h1>
-    <p class="hero-desc fade d3">A private AI partner for the moments that decide who you are as a leader — before the hard conversation, when the instinct takes over, when the pattern repeats. Built on thirty years of coaching CEOs.</p>
+    <p class="eyebrow fade d1">Organizational Consultant &middot; Author &middot; Founder of Ask Saul</p>
+    <h1 class="hero-h1 fade d2">I've spent thirty<br>years helping leaders<br>hear <em>what isn't<br>being said.</em></h1>
+    <p class="hero-desc fade d3">Consulting, coaching and speaking for CEOs and leadership teams — and now Ask Saul, a private AI partner that brings that same listening to the moments no coach is in the room for.</p>
     <div class="hero-tags fade d3">
       <span class="tag">MA Psychology</span>
       <span class="tag">MPA Harvard Kennedy School</span>
@@ -362,8 +356,8 @@
       <span class="tag">30+ Years</span>
     </div>
     <div class="hero-ctas fade d4">
-      <a href="https://ipartner.dannygal.com/index-en.html" target="_blank" class="btn-dark">Ask Saul</a>
-      <a href="#saul" class="btn-outline-dark">How it works</a>
+      <a href="https://ipartner.dannygal.com/index-en.html" target="_blank" class="btn-dark">Ask Saul →</a>
+      <a href="services.html" class="btn-outline-dark">Explore services</a>
     </div>
   </div>
   <div class="hero-photo-col fade d2">
@@ -392,27 +386,25 @@
   </div>
 </div>
 
-<!-- TWO PATHS -->
-<section class="section paths-bg" id="saul">
+<!-- ASK SAUL — handoff to the product site -->
+<section class="section saul-bg" id="saul">
   <div class="si">
-    <div class="paths-head">
-      <span class="s-eye">Ask Saul</span>
-      <h2 class="s-title">Two ways in</h2>
-      <p class="s-sub">Saul learns who you are in one deep conversation, then stays with you — private, in the messaging app you already use, at the hour you actually need it.</p>
-    </div>
-    <div class="paths-grid">
-      <a href="https://ipartner.dannygal.com/index-en.html" target="_blank" class="path">
-        <span class="path-label">For yourself</span>
-        <h3 class="path-t">A partner who knows you</h3>
-        <p class="path-d">For the manager carrying decisions no one else sees. Saul maps your strengths, triggers and patterns, then asks the question that opens the moment instead of handing you ten tips.</p>
-        <span class="path-cta">Ask Saul →</span>
-      </a>
-      <a href="https://ipartner.dannygal.com/in-a-nutshell/" target="_blank" class="path org">
-        <span class="path-label">For your organization</span>
-        <h3 class="path-t">Coaching that scales past the workshop</h3>
-        <p class="path-d">Leadership programs create change that fades. Saul is there in the everyday moments that test it — a 90-day pilot with 15–25 managers, with anonymized monthly insight for you.</p>
-        <span class="path-cta">See the pilot →</span>
-      </a>
+    <div class="saul-block">
+      <div>
+        <span class="s-eye">What I'm building now</span>
+        <h2 class="saul-t">Ask Saul</h2>
+        <p class="saul-d">A private AI partner that knows you — your strengths, your triggers, the patterns you repeat — and is there in the moments a coach can't be. A separate company I founded, built on the same listening this practice is built on.</p>
+      </div>
+      <div class="saul-links">
+        <a href="https://ipartner.dannygal.com/index-en.html" target="_blank" class="saul-link">
+          <strong>For yourself →</strong>
+          <span>For the leader carrying decisions no one else sees</span>
+        </a>
+        <a href="https://ipartner.dannygal.com/in-a-nutshell/" target="_blank" class="saul-link">
+          <strong>For your organization →</strong>
+          <span>A 90-day pilot for 15–25 managers</span>
+        </a>
+      </div>
     </div>
   </div>
 </section>
