@@ -5,39 +5,41 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Book Excerpt – The Belonging Paradox – Danny Gal</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="_shared.css">
-  <style>
-    .prose { color: #1e293b; font-family: 'Lora', Georgia, serif; font-size: 1.05rem; line-height: 1.8; }
-    .prose p { margin-bottom: 1.35rem; }
-    .prose h2 { font-family: 'Inter', sans-serif; font-size: 1.6rem; font-weight: 800; margin-bottom: 1.25rem; color: #0f172a; }
-    .prose h3 { font-family: 'Inter', sans-serif; font-size: 1.2rem; font-weight: 700; margin: 2rem 0 0.75rem; color: #0f172a; }
-    .prose em { font-style: italic; }
-    .how-to-read { background: #f8fafc; border-radius: 0.75rem; padding: 1.5rem; margin-top: 2rem; }
-    .how-to-read h3 { margin-top: 0; }
-    .how-to-read p { font-size: 0.95rem; color: #475569; }
-    .continue-reading { background: #f8fafc; border-radius: 0.5rem; padding: 1rem; text-align: center; font-size: 0.85rem; color: #64748b; font-style: italic; margin: 2rem 0; font-family: 'Inter', sans-serif; }
-    .article-card { background: #fff; border-radius: 1.25rem; box-shadow: 0 20px 60px rgba(0,0,0,0.3); padding: 2.5rem; margin-bottom: 2rem; }
-    @media(min-width:768px) { .article-card { padding: 3.5rem; } }
-    .buy-cta { border-top: 1px solid #e2e8f0; padding-top: 2rem; text-align: center; margin-top: 2rem; font-family: 'Inter', sans-serif; }
-    .buy-cta h3 { font-size: 1.4rem; font-weight: 800; color: #0f172a; margin-bottom: 0.5rem; }
-    .buy-cta p { color: #64748b; margin-bottom: 1.25rem; }
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="_page.css">
 </head>
-<body style="background:linear-gradient(180deg,#0f172a 0%,#1e3a8a 50%,#0f172a 100%);">
+<body>
+
 <header>
-  <div class="header-inner">
-    <a href="index.html" class="header-logo">Danny Gal</a>
-    <span style="font-weight:600;color:#fff;font-size:0.9rem;">Book Excerpt</span>
-    <a href="index.html" class="btn-ghost">← Home</a>
-  </div>
+  <a href="index.html" class="logo">Danny <em>Gal</em></a>
+  <nav>
+    <a href="index.html#about" class="nav-link">About</a>
+    <a href="services.html" class="nav-link">Services</a>
+    <a href="booking.html" class="nav-link">Speaking</a>
+    <a href="book-excerpt.html" class="nav-link here">The Book</a>
+    <a href="writing.html" class="nav-link">Writing</a>
+    <a href="https://ipartner.dannygal.com/index-en.html" target="_blank" class="btn-cta">Ask Saul &rarr;</a>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Open navigation">&#9776;</button>
+  </nav>
 </header>
+
+<div class="mobile-nav" id="mobile-nav">
+    <a href="index.html#about" class="nav-link">About</a>
+    <a href="services.html" class="nav-link">Services</a>
+    <a href="booking.html" class="nav-link">Speaking</a>
+    <a href="book-excerpt.html" class="nav-link here">The Book</a>
+    <a href="writing.html" class="nav-link">Writing</a>
+  <a href="https://ipartner.dannygal.com/index-en.html" target="_blank" class="btn-cta">Ask Saul &rarr;</a>
+</div>
+
+<div class="spacer"></div>
+
 
 <section class="hero-section" style="text-align:center;">
   <div class="max-w-4xl px-6">
-    <span class="badge" style="background:rgba(6,182,212,0.15);color:#67e8f9;border-color:rgba(6,182,212,0.3)">Free Sample Chapters</span>
+    <span class="badge">Free Sample Chapters</span>
     <h1>The Belonging Paradox</h1>
-    <p style="color:#94a3b8;font-size:1.15rem;margin-bottom:2rem;">Read the Prologue and Introduction</p>
+    <p>Read the Prologue and Introduction</p>
     <a href="https://www.amazon.com/s?k=The+Belonging+Paradox+Danny+Gal" target="_blank" class="btn-primary btn-lg">🛒 Get the Full Book on Amazon</a>
   </div>
 </section>
@@ -60,7 +62,7 @@
         <div class="how-to-read">
           <h3>How to Read This Book</h3>
           <p>This book explores the Belonging Paradox — the ongoing tension between our need for connection and our desire for individuality. Throughout, you'll see words like balancing, navigating and mastering, but these don't imply a simple solution. Paradoxes are complex, dynamic forces that challenge us to hold two opposing truths. This book is an invitation to actively engage with this tension, using insights and practical examples to shape the world around us without expecting a clear-cut solution.</p>
-          <p style="margin-bottom:0;">As you read, bring a sense of curiosity. Each chapter offers perspectives and stories that you can adapt to your own life.</p>
+          <p>As you read, bring a sense of curiosity. Each chapter offers perspectives and stories that you can adapt to your own life.</p>
         </div>
       </div>
     </div>
@@ -68,7 +70,7 @@
     <div class="article-card">
       <div class="prose">
         <h2>CHAPTER 1: INTRODUCTION</h2>
-        <p style="font-weight:600;color:#1e293b;">To be like everyone else and also to be unique: these conflicting forces to both assimilate and stand out have operated within me since childhood. They are impulses that exist in each of us, reflective of our human nature. I call this ongoing tension 'The Belonging Paradox' — the challenge of balancing our need for uniqueness with our equally strong desire to belong.</p>
+        <p>To be like everyone else and also to be unique: these conflicting forces to both assimilate and stand out have operated within me since childhood. They are impulses that exist in each of us, reflective of our human nature. I call this ongoing tension 'The Belonging Paradox' — the challenge of balancing our need for uniqueness with our equally strong desire to belong.</p>
         <p>Everyone is born with a unique fingerprint. They possess external and internal qualities that make them unique and special. At the same time, humans are social animals, with a biological and evolutionary tendency to belong to groups. We live with perpetual tension, striving to establish our uniqueness at the same time as trying to fit in.</p>
 
         <h3>A Child's Perspective</h3>
@@ -94,6 +96,25 @@
   </div>
 </section>
 
-<footer><p>© 2025 Danny Gal · <a href="mailto:dannygal05@gmail.com" style="color:#64748b">dannygal05@gmail.com</a></p></footer>
+<footer>
+  <span>&copy; 2025 Danny Gal &middot; Organizational Consultant &amp; Executive Coach</span>
+  <div class="f-links">
+    <a href="services.html">Services</a>
+    <a href="booking.html">Speaking</a>
+    <a href="book-excerpt.html">The Book</a>
+    <a href="writing.html">Writing</a>
+    <a href="https://ipartner.dannygal.com/index-en.html" target="_blank">Ask Saul</a>
+    <a href="mailto:dannygal05@gmail.com">Contact</a>
+  </div>
+</footer>
+
+<script>
+  const navToggle = document.getElementById('nav-toggle');
+  const mobileNav = document.getElementById('mobile-nav');
+  navToggle.addEventListener('click', () => {
+    const open = mobileNav.classList.toggle('open');
+    navToggle.innerHTML = open ? '&#10005;' : '&#9776;';
+  });
+</script>
 </body>
 </html>

@@ -173,20 +173,37 @@ nav { display: flex; align-items: center; gap: 0.25rem; }
   color: var(--dark) !important; line-height: 1.25; margin-bottom: 0.35rem;
 }
 .scard-top p, .svc-top p, .svc-desc { font-size: 0.83rem; color: var(--muted) !important; line-height: 1.6; opacity: 1 !important; }
-.scard-bot, .svc-bottom { background: var(--white) !important; padding: 1rem 1.5rem 1.4rem; display: flex; justify-content: space-between; align-items: center; }
+/* services.html: a single row (label + arrow) */
+.scard-bot { background: var(--white) !important; padding: 1rem 1.5rem 1.4rem; display: flex; justify-content: space-between; align-items: center; }
+/* booking.html: description, features and button stack vertically */
+.svc-bottom { background: var(--white) !important; padding: 0 1.5rem 1.5rem; display: block; }
 .scard-bot span, .svc-btn { color: var(--gold) !important; font-size: 0.8rem; font-weight: 700; }
 .no-link .scard-bot span { color: var(--muted) !important; }
 .includes-card { background: var(--white); border: 1px solid var(--border); border-radius: 0.75rem; padding: 1.6rem 1.5rem; box-shadow: 0 2px 8px rgba(18,25,42,0.04); }
 .includes-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; font-weight: 600; color: var(--dark); margin-bottom: 0.9rem; }
 .inc-item { display: flex; gap: 0.65rem; align-items: flex-start; font-size: 0.85rem; color: var(--muted); line-height: 1.6; padding: 0.3rem 0; }
 .inc-dot { width: 0.4rem; height: 0.4rem; border-radius: 50%; background: var(--gold) !important; flex-shrink: 0; margin-top: 0.55rem; }
+/* price badge sits on its own line above the title, never floated */
+.svc-top { position: relative; }
 .price-badge {
-  display: inline-block; background: var(--gold-dim); border: 1px solid rgba(184,135,42,0.25);
-  color: var(--gold); font-size: 0.8rem; font-weight: 700; padding: 0.3rem 0.8rem;
-  border-radius: 9999px; margin-bottom: 0.75rem;
+  display: inline-block; float: none; background: var(--gold-dim);
+  border: 1px solid rgba(184,135,42,0.25); color: var(--gold);
+  font-family: 'Cormorant Garamond', serif; font-size: 1.05rem; font-weight: 600;
+  padding: 0.15rem 0.75rem; border-radius: 9999px; margin-bottom: 0.75rem;
 }
-.feature-list { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; margin-top: 0.9rem; }
+.feature-list { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; margin: 0.9rem 0 1.4rem; }
 .feature-list li { display: flex; gap: 0.6rem; align-items: flex-start; font-size: 0.85rem; color: var(--muted); line-height: 1.6; }
+.svc-desc { margin-bottom: 1.1rem; }
+.svc-btn {
+  display: block; width: 100%; text-align: center;
+  padding: 0.75rem 1rem; border: none; border-radius: 0.35rem; cursor: pointer;
+  background: var(--dark) !important; color: #fff !important;
+  font-family: 'Outfit', sans-serif; font-size: 0.85rem; font-weight: 700;
+  text-decoration: none; transition: background 0.2s;
+}
+.svc-btn:hover { background: var(--dark2) !important; }
+.includes-grid { grid-template-columns: repeat(auto-fill, minmax(220px,1fr)); gap: 1.25rem; margin-top: 1.25rem; }
+.inc-item span { color: var(--muted); font-size: 0.87rem; line-height: 1.6; }
 .sub { font-size: 0.85rem; color: var(--muted); line-height: 1.7; }
 
 /* ── PROSE (book-excerpt.html) ───────────────────────────── */
@@ -195,8 +212,13 @@ nav { display: flex; align-items: center; gap: 0.25rem; }
 .prose h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.35rem; font-weight: 600; color: var(--dark); margin: 2rem 0 0.75rem; }
 .prose p { font-size: 1rem; line-height: 1.9; color: var(--text); margin-bottom: 1.25rem; }
 .prose blockquote { border-left: 3px solid var(--gold); padding-left: 1.25rem; margin: 1.75rem 0; font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.2rem; color: var(--dark); line-height: 1.7; }
-.article-card { background: var(--white); border: 1px solid var(--border); border-radius: 0.75rem; padding: 2rem 1.9rem; box-shadow: 0 2px 10px rgba(18,25,42,0.05); }
-.how-to-read, .continue-reading, .buy-cta { background: var(--white); border: 1px solid var(--border); border-radius: 0.75rem; padding: 1.75rem; margin-top: 2rem; }
+.prose em { font-style: italic; }
+.article-card { background: var(--white); border: 1px solid var(--border); border-radius: 0.75rem; padding: 2rem 1.9rem; box-shadow: 0 2px 10px rgba(18,25,42,0.05); margin-bottom: 2rem; }
+@media (min-width: 768px) { .article-card { padding: 3rem 3.25rem; } }
+.how-to-read, .continue-reading, .buy-cta { background: var(--bg2); border: 1px solid var(--border); border-radius: 0.75rem; padding: 1.75rem; margin-top: 2rem; }
+.how-to-read h3 { margin-top: 0; }
+.how-to-read p { font-size: 0.92rem; color: var(--muted); line-height: 1.75; }
+.continue-reading { text-align: center; font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.05rem; color: var(--muted); margin: 2rem 0; }
 .buy-cta { text-align: center; background: var(--dark); border-color: transparent; border-top: 3px solid var(--gold); }
 .buy-cta h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; font-weight: 400; color: #fff; margin-bottom: 0.6rem; }
 .buy-cta p { color: #8899aa; font-size: 0.9rem; margin-bottom: 1.5rem; }
